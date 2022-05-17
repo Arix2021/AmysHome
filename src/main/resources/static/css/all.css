@@ -1,0 +1,115 @@
+/**
+ *  所有日记的列表
+ */
+/*日记导航条*/
+.navbar_diary {
+}
+
+.navbar_diary div {
+}
+
+.diary_per {
+    height:110px !important;
+    border-bottom: #17a2b8 1px solid;
+}
+
+.diary_per .body {
+    width: 100% !important;
+}
+
+.diary_per .title {
+    margin-bottom: 0!important;
+
+}
+
+.diary_per .content {
+    height: 30px!important;
+    margin-top: 8px!important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1!important;
+    -webkit-box-orient: vertical;
+    line-height: 26px
+}
+
+/*分类卡片*/
+.diary_class_card{
+    margin-inline: 15px!important;
+    padding-block: 15px;
+}
+.diary_class_card div {
+    padding: 5px!important;
+}
+
+.diary_class_card div span {
+    font-family: 幼圆, sans-serif,bold;
+    font-size: 22px;
+    font-weight: 500;
+    color:white;
+    position: absolute;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.diary_class_card img {
+    width: 160px;
+    height: 110px;
+    border-radius: 5px;
+    filter: brightness(.75);
+}
+.diary_class_card img:hover {
+    border-radius: 10px;
+    filter: brightness(1);
+    transform: scale(1.1);
+    transition: all .5s;
+}
+
+
+/*日记列表展示控制*/
+.diary_list_control {
+    font-size: 15px;
+    padding-block: 10px;
+    padding-inline: 30px;
+    border-bottom: silver 1px solid;
+}
+
+.diary_list_control .dropdown_item {
+    font-weight: 600;
+    width: 150px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    padding-block: 2px;
+}
+
+.diary_list_control .dropdown_item:hover {
+    transform: scale(1.05);
+    color: #17a2b8;
+    background-color: white;
+    transition: all .3s;
+    box-shadow:silver 0 0 1px 1px;
+}
+
+.dropdown_radio .active{
+    border: silver 1px solid!important;
+}
+
+.dropdown_radio_box {
+    border: silver 1px solid;
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    top: 45px;
+    /*left: 0;*/
+}
+
+.dropdown_radio .check_box {
+    position: absolute;
+    top: 20px;
+    left: 200px;
+}
+

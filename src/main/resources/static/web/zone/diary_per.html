@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日记查看 - 艾米社区</title>
+    <link rel="icon" type="image/x-ico" href="../../images/logo/logo-icon.png" />
+    <link rel="stylesheet" type="text/css" href="../../css/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/fonts/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/tocbot/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../../css/typo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/zone.css">
+    <link rel="stylesheet" type="text/css" href="../../css/diary.css">
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script src="../../js/jquery.cookie.js"></script>
+    <!--    <script src="../../bootstrap/js/bootstrap.min.js"></script>-->
+    <script src="../../bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../../bootstrap/js/bootstrap.js"></script>
+    <script src="../../lib/waypoints/jquery.waypoints.min.js"></script>
+    <script src="../../lib/tocbot/tocbot.min.js "></script>
+    <script src="../../js/moment.js "></script>
+    <script src="../../js/scrollTo.js "></script>
+    <script src="../../js/base.js "></script>
+    <script src="../../js/zone.js "></script>
+    <script src="../../js/zonePlugins.js"></script>
+    <script src="../../js/diary.js"></script>
+
+    <!-- 开发用样式 -->
+    <link rel="stylesheet" type="text/css" href="../../css/testcss.css">
+</head>
+<body>
+    <!-- zone common -->
+    <div class="zone_header"></div>
+    <script async>$(".zone_header").load("../template/zone_header.html")</script>
+
+    <!-- 主体页面 -->
+    <div class="container main">
+        <div class="row">
+            <div class="col-9 corner_area">
+                <!-- 暂定 先就这样吧 -->
+                <div class="row">
+                    <div class="col selects alert btn-group animate__animated animate__fadeIn" role="alert" aria-label="...">
+                        <a href="zone.html" class="font_less btn btn-info">个人首页</a>
+                        <a href="" class="font_less btn btn-info">动态</a>
+                        <a href="diary.html" class="font_less btn btn-info">日记</a>
+                        <a href="" class="font_less btn btn-info">相册</a>
+                        <a href="" class="font_less btn btn-info">音乐盒</a>
+                        <a href="guestbook.html" class="font_less btn btn-info">留言板</a>
+                        <a href="about.html" class="font_less btn btn-info">关于我</a>
+                        <a href="" class="font_less btn btn-info">更多</a>
+                    </div>
+                </div>
+                <!-- 日记 -->
+                <div class="row">
+                    <!-- 日志面板 -->
+                    <div class="col-1 text-center clear-padding">
+                        <div class="option shadow_mini" style="z-index: 9">
+                            <div class="a">
+                                <div class="b">创作</div>
+                                <div class="c">
+                                    <ul>
+                                        <li class="option_btn" onclick="location.href='write.html'">新文章</li>
+                                        <li class="option_btn" onclick="location.href='help.html'">互助问答</li>
+                                        <li class="option_btn" onclick="location.href='draft.html'">草稿箱</li>
+                                        <li class="option_btn" onclick="location.href='recycle'">回收站</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="a">
+                                <div class="b">我的文章</div>
+                                <div class="c">
+                                    <ul>
+                                        <li class="option_btn" onclick="location.href='diary.html'">最近动态</li>
+                                        <li class="option_btn" onclick="location.href='all.html'">所有文章</li>
+                                        <li class="option_btn" onclick="location.href='private.html'">私密文章</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="a">
+                                <div class="b">文章管理</div>
+                                <div class="c">
+                                    <ul>
+                                        <li class="option_btn" onclick="modal_function(1)" data-toggle="modal" data-target="#staticBackdrop">
+                                            评论管理
+                                        </li>
+                                        <li class="option_btn" onclick="modal_function(2)" data-toggle="modal" data-target="#staticBackdrop">
+                                            内容管理
+                                        </li>
+                                        <li class="option_btn" onclick="modal_function(3);showDiaryClasses()" data-toggle="modal" data-target="#staticBackdrop">
+                                            分类管理
+                                        </li>
+                                        <li class="option_btn" onclick="modal_function(4);" data-toggle="modal" data-target="#staticBackdrop">
+                                            标签管理
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="a">
+                                <div class="b">数据统计</div>
+                                <div class="c">
+                                    <ul>
+                                        <li class="option_btn">时间轴</li>
+                                        <li class="option_btn">阅访记录</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="a">
+                                <div class="b">设置</div>
+                                <div class="c">
+                                    <ul>
+                                        <li class="option_btn">基本设置</li>
+                                        <li class="option_btn">权限隐私</li>
+                                        <li class="option_btn">其他</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 查看日记 -->
+                    <div class="col">
+                        <script>$(function (){showDiary()})</script>
+                        <div id="diary_area" class="row diary_area corner_middle  animate__animated animate__slideInUp animate__fast">
+                            <div class="col diary border clear-padding">
+                                <div id="diary-16" class="title">
+                                    <div class="font_less"><a href="write.html?did=16">编辑</a>|<a href="#" onclick="deleteDiary(16)">删除</a></div>
+                                    养一只猫一个月要花费多少马内？
+                                </div>
+                                <div class="diary_info">
+                                    <div>
+                                        <span>原创</span>
+                                        <span>飞翔的小黄猫Alix</span>
+                                        <span>发表于 2022-1-16 18:35</span>
+                                        <span style="position: absolute;right:5px">
+                                        <span>浏览量 686</span>
+                                        <span>点赞 203</span>
+                                        <span>转发 352</span>
+                                        <span>收藏 156</span>
+                                    </span>
+                                    </div>
+                                    <div>文章分类：<span class="square_blue">宠物训练</span></div>
+                                    <div>标签：<span>经验总结</span></div>
+                                </div>
+                                <div class="diary_body">
+                                    <div id="read_text" class="typo" style="padding-bottom: 300px">
+                                        <h2 id="section1">一、关于 <i class="serif">Typo.css</i></h2>
+                                        <h3 id="section2"></h3>
+                                        <h3 id="section3">测试</h3>
+                                        <h3 id="section4">测试</h3>
+                                        <p><i class="serif">Typo.css</i> 的目的是，在一致化浏览器排版效果的同时，构建最适合中文阅读的网页排版。</p>
+                                        <h4>现状和如何去做：</h4>
+
+                                        <p class="typo-first">排版是一个麻烦的问题 <sup><a href="#appendix1"># 附录一</a></sup>，需要精心设计，而这个设计却是常被视觉设计师所忽略的。前端工程师更常看到这样的问题，但不便变更。因为在多个
+                                            OS 中的不同浏览器渲染不同，改动需要多的时间做回归测试，所以改变变得更困难。而像我们一般使用的
+                                            Yahoo、Eric Meyer 和 Alice base.css 中采用的 Reset 都没有很好地考虑中文排版。<i class="serif">Typo.css</i>
+                                            要做的就是解决中文排版的问题。</p>
+
+                                        <p><strong><i class="serif">Typo.css</i> 测试于如下平台：</strong></p>
+                                        <table summary="Typo.css 的测试平台列表">
+                                            <thead>
+                                            <tr>
+                                                <th>OS/浏览器</th>
+                                                <th>Firefox</th>
+                                                <th>Chrome</th>
+                                                <th>Safari</th>
+                                                <th>Opera</th>
+                                                <th>IE9</th>
+                                                <th>IE8</th>
+                                                <th>IE7</th>
+                                                <th>IE6</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>OS X</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Win 7</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Win XP</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>-</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ubuntu</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>-</td>
+                                                <td></td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <h4>中文排版的重点和难点</h4>
+
+                                        <p>在中文排版中，HTML4 的很多标准在语义在都有照顾到。但从视觉效果上，却很难利用单独的 CSS 来实现，像<abbr title="在文字下多加一个点">着重号</abbr>（例：这里<em
+                                                class="typo-em">强调一下</em>）。在 HTML4 中，专名号标签（<code>&lt;u&gt;</code>）已经被放弃，而
+                                            HTML5 被<a href="//html5doctor.com/u-element/">重新提起</a>。<i class="serif">Typo.css</i>
+                                            也根据实际情况提供相应的方案。我们重要要注意的两点是：</p>
+                                        <h3 id="section6">进行测试超长标题效果</h3>
+                                        <ol>
+                                            <li>语义：语义对应的用法和样式是否与中文排版一致</li>
+                                            <li>表现：在各浏览器中的字体、大小和缩放是否如排版预期</li>
+                                        </ol>
+                                        <p>对于这些，<i class="serif">Typo.css</i> 排版项目的中文偏重注意点，都添加在附录中，详见：</p>
+                                        <blockquote>
+                                            <b>附录一</b>：<a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a>
+                                        </blockquote>
+                                        <h2 id="sectionh2">二、测试h2</h2>
+                                        <p>目前已有像百姓网等全面使用 <i class="serif">Typo.css</i> 的项目，测试平台的覆盖，特别是在<abbr title="手机、平板电脑等移动平台">移动端</abbr>上还没有覆盖完主流平台，希望有能力的同学能加入测试行列，或者加入到
+                                            <i class="serif">Typo.css</i>
+                                            的开发。加入方法：<a href="https://github.com/sofish/Typo.css">参与 <i class="serif">Typo.css</i> 开发</a>。如有批评、建议和意见，也随时欢迎给在
+                                            Github 直接提 <a
+                                                    href="https://github.com/sofish/Typo.css/issues">issues</a>，或给<abbr
+                                                    title="Sofish Lin, author of Typo.css"
+                                                    role="author">我</abbr>发<a
+                                                    href="mailto:sofish@icloud.com">邮件</a>。</p>
+                                    </div>
+                                </div>
+                                <div id="commentDiary" style="padding-inline: 30px">
+                                    <!-- 阅读增强 -->
+                                    <div id="read_enhanced" class="hide">1</div>
+                                    <!-- 广告 -->
+                                    <div class="adv">
+                                        <img src="../../images/test/adv-dogs.png" alt="">
+                                    </div>
+                                    <!-- 评论区 -->
+                                    <div class="area_comment clear-padding">
+                                        <div class="div">
+                                            <div class="gap_row">
+                                                <span class="h3">评论 </span><span> 最新 | 最热</span>
+                                                <span class="put_right_2">
+                                                    [点赞]
+                                                    [点踩]
+                                                    [收藏]
+                                                    [转发]
+                                                </span>
+                                            </div>
+                                            <img src="../../images/dog1.png" class="avatar border" alt="">飞翔的小黄猫Alix
+                                            <input style="width: 80%" type="text" placeholder="发条友善的评论表达想法吧~">
+                                        </div>
+                                        <hr>
+
+                                        <!-- 每条评论 -->
+                                        <div class="comment">
+                                            <img src="../../images/img.png" class="avatar border" alt="">
+                                            <div class="username">萧萧</div>
+                                            <div class="comment_content">感谢博主！最近养了小猫刚好用的上！</div>
+                                            <div class="comment_info">
+                                                2022-2-16 12:33&nbsp;&nbsp;&nbsp;
+                                                <a href="">△15&nbsp;&nbsp;&nbsp;▽&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;回复</a>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <div class="comment">
+                                            <img src="../../images/img_2.png" class="avatar border" alt="">
+                                            <div class="username">小猫儿</div>
+                                            <div class="comment_content">哇！原来养小猫要这么贵呀。。。</div>
+                                            <div class="comment_info">
+                                                2022-2-3 10:05&nbsp;&nbsp;&nbsp;
+                                                <a href="">△35&nbsp;&nbsp;&nbsp;▽&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;回复</a>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <div class="comment">
+                                            <img src="../../images/index_back.jpg" class="avatar border" alt="">
+                                            <div class="username">青木</div>
+                                            <div class="comment_content">先收藏了，以后养小猫用的上！</div>
+                                            <div class="comment_info">
+                                                2022-2-05 12:03&nbsp;&nbsp;&nbsp;
+                                                <a href="">△6&nbsp;&nbsp;&nbsp;▽&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;回复</a>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <div class="blank_bottom" align="center">暂无更多</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 改成侧边 -->
+<!--                        <div class="row">-->
+<!--                            <div id="diaryInteract" class="col hide">-->
+<!--                                <div class="clear-padding ">-->
+<!--                                    &lt;!&ndash; 滚动条 评论条 &ndash;&gt;-->
+<!--                                    <div class="diary_interact">-->
+<!--                                        <img src="../../images/dog1.png" class="avatar circle" alt="">飞翔的小黄猫Alix-->
+<!--                                        <span style="position: absolute;right: 30px">-->
+<!--                                    [点赞]-->
+<!--                                    [点踩]-->
+<!--                                    <input type="text" placeholder="发表评论">评论-->
+<!--                                    [收藏]-->
+<!--                                    [转发]-->
+<!--                                </span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+
+                    <!-- 我的文章-最近动态 -->
+                    <!--            <div id="diary_right" class="col-3 def diary_area" style="background-color: silver;opacity: .3">-->
+                    <!--                <h2>待开发区域</h2>-->
+                    <!--            </div>-->
+                </div>
+            </div>
+            <!-- 右侧栏 功能 -->
+            <div class="col area area-right">
+                <!-- 个人信息 -->
+                <div class="personal card_info_box corner_area clear-padding text-center">
+                    <span class="actively_start pointer star_lighting" title="当前是活跃之星用户">★ ACTIVELY STAR</span>
+                    <img class="card_bg corner_area" src="../../images/bg/card_bg1.jpg" alt="">
+                    <img src="../../images/test/avatar1.png" class="avatar circle ava_large border_2" alt="">
+                    <div class="card_info clear-padding">
+                        <div class="username">飞翔的小黄猫Alix</div>
+                        <div class="padding_row">
+                            <div class="font_mini">
+                                <span>关注 325</span>
+                                <span>粉丝 3.6k</span>
+                            </div>
+                            <div class="signature font_less font-weight-bold">这个人很酷，什么都没有留下</div>
+                        </div>
+                        <div class="card_info_more" onclick="hideOrShow($('.home_info'))">
+                            <div class="card_info_control pointer">
+                                <img src="../../bootstrap/icons/chevron-compact-down.svg" class="pointer" alt="">
+                            </div>
+                            <div class="home_info font_less hide border-top">
+                                <div class="home_code">社区编号 65033129798</div>
+                                <div class="home_age">社龄 1年8月&nbsp;加入时间 2021-6-8</div>
+                                <div class="email">65033129798@amys.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-center" style="border-radius: 0 0 15px 15px">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-qr-code-scan"></i>
+                        扫描二维码
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body hide">
+                        <span>添加我为社区好友</span><br>
+                        <img class="qrCode" src="../../images/test/code.png" title="别扫了 扫不出来的" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-info-square"></i>
+                        公告信息
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body">
+                        暂时还没有公告
+                    </div>
+                </div>
+                <div class="card diary_clazz">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-list"></i>
+                        日记分类
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body hide">
+                        <div><a href="diary.html?did=12">日常 15<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">美食 20<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">宠物 33<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">视频 8<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">其他 5<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                    </div>
+                </div>
+                <div class="card diary_tag">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-tags"></i>
+                        日记标签
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body text-center hide">
+                        <span>玩耍</span>
+                        <span>撸猫</span>
+                        <span>遛猫遛狗</span>
+                        <span>打游戏</span>
+                        <span>旅游</span>
+                        <span>聚会</span>
+                        <span>随笔</span>
+                    </div>
+                </div>
+                <div id="waypoint" class="card">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-journal-check"></i>
+                        日志推荐
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div id="diaryRecommend" class="card_body hide">
+                        <div><a href="diary_per.html">
+                            1 布偶猫不吃东西怎么办？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div><a href="">
+                            2 遛狗的正确打开方式！</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            3 给猫猫刷牙</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            4 狗狗凶人怎么教育？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            5 养一只猫一个月要花费多少马内？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div><a href="">
+                            展开更多 <i class="bi bi-plus-lg"></i></a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- 目录 滚动侦测控制的区域 -->
+                <div id="waypointControl" class="card">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-list-nested"></i>
+                        目录
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body catalog hide">
+                        <ol id="catalog"></ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="page_foot"></div>
+    <script>$(".page_foot").load("../template/footer.html")</script>
+
+
+    <!--
+        组件
+     -->
+
+    <!-- 弹窗 -->
+    <div id="popup_tip" class="popup_box hide">
+        <div class="all_center">
+            <div class="popup_body">
+                <img src="../../images/icons/tips/info.png" alt="">
+                <div class="popup_content">可爱的用户，你好~</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header all_center">
+                    <h5 class="modal-title " id="staticBackdropLabel">管理我的文章</h5>
+                </div>
+                <div class="modal-body text-center  clear-padding">
+                    <div class="row clear-padding">
+                        <div class="col-2 modal_left border_left_right">
+                            <div>评论管理</div>
+                            <div>内容管理</div>
+                            <div>分类管理</div>
+                            <div>标签管理</div>
+                        </div>
+                        <div class="col-10 modal_right  text-left">
+                            <div class="modal_function_area text-center">
+                                <table class="table cls_modal table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>分类名称</th>
+                                        <th>默认</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="diaryClasses">
+                                    <tr>
+                                        <th>1</th>
+                                        <td class="cls_name">
+                                            <input type="text" name="clsName" class="no_border text-center" value="默认分类"
+                                                   maxlength="10"
+                                                   onclick="$(this).parents('tr').find('.mybtn_green').show()">
+                                        </td>
+                                        <td>√</td>
+                                        <td class="row_control">
+                                            <span class="clsRecord hide">默认分类</span>
+                                            <span class="mybtn_green hide" onclick="clsOpera(this,'PUT')">保存</span>
+                                            <span class="mybtn_red" onclick="clsOpera(this,'DELETE')">删除</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>2</th>
+                                        <td class="cls_name">
+                                            <input type="text" name="clsName" class="no_border text-center" value="个人生活"
+                                                   maxlength="10"
+                                                   onclick="$(this).parents('tr').find('.mybtn_green').show()">
+                                        </td>
+                                        <td></td>
+                                        <td class="row_control">
+                                            <span class="clsRecord hide">个人生活</span>
+                                            <span class="mybtn_green hide" onclick="clsOpera(this,'PUT')">保存</span>
+                                            <span class="mybtn_red" onclick="clsOpera(this,'DELETE')">删除</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>3</th>
+                                        <td class="cls_name">
+                                            <input type="text" name="clsName" class="no_border text-center" value="和宠物一起"
+                                                   maxlength="10"
+                                                   onclick="$(this).parents('tr').find('.mybtn_green').show()">
+                                        </td>
+                                        <td></td>
+                                        <td class="row_control">
+                                            <span class="clsRecord hide">和宠物一起</span>
+                                            <span class="mybtn_green hide" onclick="clsOpera(this,'PUT')">保存</span>
+                                            <span class="mybtn_red" onclick="clsOpera(this,'DELETE')">删除</span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="add_new_class">
+                                    <img src="../../bootstrap/icons/plus-circle.svg" onclick="addCls()" alt="">
+                                </div>
+                                <div class="page_control text-center">
+                                    <button class="mybtn_blue">上一页</button>
+                                    <button class="mybtn_blue">下一页</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">退出</button>
+                    <!--                    <button type="button" class="btn btn-primary" onclick="submit($('#clsForm'))">保存</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(function () {
+            // 加载评论滚动条
+            $(document).click(function () {
+                $("#diaryInteract").show();
+            })
+
+            // 阅读增强
+            let turnOn = true;
+            let exec = $("#read_enhanced");
+            let textArea = $("#read_text");
+            textArea.click(function () { // 临时用，实际会更换触发对象
+                let exec = $("#read_enhanced"); // 执行动画的元素
+                if (exec.css("display") === "none") {
+                    turnOn = true;
+                    exec.css("display", "block");
+                    console.log("开启阅读辅助");
+                } else {
+                    turnOn = false;
+                    exec.css("display", "none");
+                    console.log("关闭阅读辅助");
+                }
+            })
+            textArea.mousemove(function (event) {
+                // 当功能开启才执行
+                if (turnOn) {
+                    follow(exec, event, 0, -410); // 调用跟随鼠标
+                } else {
+                    exec.hide();
+                }
+            });
+
+            // 评论条控制
+            let input_comm = $(".comment_input");
+            let inputPa;
+            input_comm.click(function () {
+                $(".comment_input").next().hide();
+                $(this).select(); // 点击时选中所有内容文字
+                let control = $(this).next();
+                control.show();
+            })
+
+            // 目录滚动侦测
+            var $catalog = $("#waypointControl");
+            var waypoint = new Waypoint({
+                element: document.getElementById('waypoint'),
+                handler: function (direction) {
+                    if (direction === "down") {
+                        $catalog.css({
+                            "position": "fixed",
+                            "top": "0",
+                            "width" : $catalog.prev().width(),
+                        });
+                        $catalog.find(".card_body").show();
+                    } else {
+                        $catalog.attr("style","");
+                    }
+                }
+            })
+
+            // 初始化 toctop目录组件
+            tocbot.init({
+                // 目录生成区
+                tocSelector: '#catalog',
+                // 内容区
+                contentSelector: '#read_text',
+                // 允许的目录等级
+                headingSelector: 'h1, h2, h3',
+                // For headings inside relative or absolute positioned containers within content.
+                hasInnerContainers: true,
+            });
+
+
+        })
+
+        function modal_function(num) {
+            switch (num) {
+                case 1:
+
+                    break
+                case 2:
+                    classManage();
+                    break
+                case 3: // 分类管理
+
+                    break
+            }
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MarkDown插件</title>
+    <!-- 引入md插件的css样式 -->
+    <link rel="stylesheet" href="../../../lib/editor/md/css/editormd.min.css">
+</head>
+<body>
+    <h1>md编辑器插件引入</h1>
+
+
+
+
+<!-- markdown文本编辑器 -->
+<!--
+    必须有jq的支持
+    引入md插件的js
+-->
+<script src="../../../js/jquery-3.6.0.min.js"></script>
+<script src="../../../lib/editor/md/editormd.min.js"></script>
+<script type="text/javascript">
+    /*
+    *   初始化md
+    *       md-content 指定位置标签的id
+    *       width 编辑器宽度
+    *       height 编辑器高度
+    *       path 编辑器内部lib目录
+    * */
+    let mdEditor;
+    $(function() {
+        mdEditor = editormd("md-content", {
+            width   : "100%",
+            height  : 800,
+            syncScrolling : "single",
+            path    : "../../lib/editor/md/lib/"
+        });
+    });
+</script>
+
+</body>
+</html>

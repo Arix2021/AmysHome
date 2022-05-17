@@ -1,0 +1,90 @@
+.admin_box {
+    /*background-image: url("../images/bg/bg.jpeg");*/
+    background-color: lightgrey;
+    font-family: 华文细黑, serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.project_info div {
+    margin-block: .3rem;
+    font-size: 16px;
+}
+
+.col {
+}
+
+.admin {
+    margin-block: 10%;
+    margin-inline: 40%;
+}
+
+.title{
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: bold;
+}
+.t2 {
+    font-weight: normal;
+}
+
+.login {
+    height: 350px;
+    padding-inline: 30px;
+    padding-block: 30px;
+    position: absolute;
+    background-color: #f2f2f2;
+}
+
+.login div {
+    margin-block: 15px;
+}
+
+.login input {
+    font-size: 20px;
+    font-weight: 300;
+    padding-inline: 10px;
+    padding-left: 40px;
+    width: 280px;
+    height: 40px;
+}
+
+.login input:hover {
+    border: #a2f2d3 1px solid;
+    transition: all .3s;
+}
+
+.login img {
+    position: absolute;
+    padding-left: 10px;
+    margin-block: 10px;
+    width: 25px;
+    height: 25px;
+}
+
+.submit,.cipher {
+    width: 100% !important;
+    padding: 0!important;
+}
+
+.cipher {
+    text-indent: 15px;
+}
+
+.tip {
+    color:#f2695c;
+    font-size: 16px;
+    font-family: 华文细黑, serif;
+}
+.reg_btn {
+    position: absolute;
+    right: 30px;
+}
+
+.login a {
+}
+
+.login a:hover{
+    color: lightseagreen;
+}
+

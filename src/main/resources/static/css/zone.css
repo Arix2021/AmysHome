@@ -1,0 +1,643 @@
+body {
+    background-image: url(../images/bg/bg-startRiver.png);
+    background-repeat: repeat;
+    background-attachment: fixed
+    /*background-color: rgba(245,245,245,0.51);*/
+}
+
+.main {
+    /*border: #dedede 1px solid;*/
+    /*min-height: 1200px;*/
+    background-color: transparent;
+}
+
+/*idea快速编辑区域*/
+.idea_quick {
+    /*height: 100px;*/
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.idea_quick label {
+}
+
+.idea_quick textarea {
+    width: 100%;
+    max-height: 110px;
+    resize: none;
+    /*overflow: hidden;*/
+    /*white-space: nowrap;*/
+}
+
+/* 动态展示区域 */
+.recent {
+}
+
+.recent_control {
+    font-size: 14px;
+    font-weight: bold;
+    padding-inline: 1.2rem;
+    padding-block: 3px;
+    background: rgba(0, 168, 198, 0.6);
+    border-radius: 10px 10px 0 0;
+    /*border: #6c757d 1px solid;*/
+}
+
+.recent_per {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /*height: 140px;*/
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.recent_per img {
+    float: left;
+    margin-left: 15px;
+    width: 135px;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.recent_per_body {
+    height: 135px;
+    /*height: inherit;*/
+    -ms-flex: 1;
+    flex: 1;
+
+}
+
+.recent_per_body .title {
+    font: 20px 微软雅黑;
+    color: rgba(0, 0, 0, .9);
+    position: absolute;
+    top: 5px;
+}
+
+.recent_per_body .content {
+    font: 14px 微软雅黑;
+    color: #6c757d;
+    /*margin-top: 5px;*/
+    /*margin-bottom: 5px;*/
+    position: absolute;
+    top: 35px;
+    padding-right: 20px;
+    /*超出部分省略号*/
+    height: 60px; /*定义块元素的宽度*/
+    white-space: normal; /*内容超高后禁止换行显示*/
+    overflow: hidden; /*超出部分隐藏*/
+    /*text-overflow:ellipsis;!*文字超出部分以省略号显示*!*/
+}
+
+.recent_per_body .info {
+    font-family: 宋体, serif;
+    font-size: 13px;
+    color: #007bff;
+    position: absolute;
+    bottom: 5px;
+    text-decoration: none;
+}
+
+/*横幅底图*/
+.banner video {
+    height: 300px !important;
+    width: 100%;
+    min-width: 1900px;
+    white-space: nowrap;
+    box-shadow: 0 .3rem .3rem 0 rgba(111, 111, 111, .3) !important;
+    border-bottom: #a4a4a4 1px solid;
+}
+
+
+/*小窝头部*/
+.home_head {
+    width: 100%;
+    /*width: 1800px;*/
+    /*min-width:     1150px;*/
+}
+.home_head * {
+    /*color: white;*/
+    color:dimgrey;
+    text-decoration: none;
+}
+/*logo*/
+.home_head .logo {
+    position: absolute;
+    top: 130px;
+    left: 50px;
+    width: 320px;
+    height: 115px;
+}
+
+.home_head .col {
+
+}
+
+/*.home_head_tool:hover {*/
+/*    background: rgba(238, 238, 238, 0.6);*/
+/*    !*height: 60px;*!*/
+/*}*/
+
+.home_head_tool {
+    position: absolute;
+    top: -15px;
+    /*min-width: 1150px;*/
+    width: 100%;
+    min-width: 1150px;
+    height: 60px;
+    margin-top: 10px;
+
+}
+
+.home_head_tool .left, .home_head_tool .middle, .home_head_tool .right {
+    margin-top: 15px;
+}
+
+/*左边选项*/
+.home_head_tool .left {
+    position: absolute;
+    left: 10px;
+    /*min-width: 300px;*/
+}
+
+.home_head_tool .left span {
+    margin-left: 8px;
+}
+
+/*中间搜索框*/
+.middle {
+    position: absolute;
+    top: 60px;
+    left: 30%;
+}
+
+/*右侧个人功能*/
+.home_head_tool .right {
+    position: absolute;
+    right: 10px;
+}
+
+.header {
+    /*height: 120px;*/
+    width: 100%;
+    z-index: 6;
+}
+
+.area {
+    /*margin-top: 15px;*/
+}
+
+.area_left {
+    margin-left: 15px;
+    /*background: rgba(187,187,187,0.52);*/
+    /*margin-left: 10px;*/
+}
+
+.area_right {
+    background: #6c757d;
+    border: #007bff 1px solid;
+}
+
+.area_left div {
+    /*background: rgba(192, 192, 192, 0.6);*/
+    margin-bottom: 15px;
+    /*margin-top: 15px;*/
+}
+
+/*.area_left .state {*/
+/*    border-radius: 5px;*/
+/*    margin-block: 0;*/
+/*}*/
+
+.area_middle {
+}
+
+.area-right {
+}
+
+.area-right > div {
+    background-color: white;
+    border-radius: 5px;
+    /*margin-top: 15px;*/
+    margin-bottom: 15px;
+}
+
+/*左侧的卡片*/
+.area_left .card_title {
+    margin-bottom: 0;
+}
+.area_left .card_body {
+    padding-block: 0;
+    margin-block: 5px!important;
+}
+.area_left .card_body div {
+    margin-block: 0;
+    height: 25px;
+}
+
+
+/*右侧卡片*/
+.card {
+    border-radius: 10px;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.card_title {
+    font-size: 15px;
+    color: #00a8c6;
+    font-weight: bold;
+    padding-inline: 15px;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: rgba(154, 154, 154, 0.2) 1px solid;
+}
+
+.card_body, .card_more {
+    font-size: 14px;
+    padding-inline: 15px;
+    padding-block: 10px;
+}
+
+.area-right .card_body > div {
+    /*height: 30px;*/
+    line-height: 30px;
+    cursor: pointer;
+    /*white-space: normal; !*内容超高后禁止换行显示*!*/
+    /*overflow: hidden; !*超出部分隐藏*!*/
+    /*text-overflow:ellipsis;!*文字超出部分以省略号显示*!*/
+}
+
+.area-right .card_body > div:hover {
+    color: #00a8c6;
+    font-weight: bold;
+}
+
+.area-right .card_body > div i:hover {
+    color: #00a8c6;
+    display: block !important;
+}
+
+/*卡片互动*/
+.card .card_title:hover .show_hide {
+    display: block;
+}
+.card .card_body > div:hover .show_hide {
+    display: block;
+}
+
+/*小窝主页日记标签卡片美化*/
+.diary_tag .card_body span:hover {
+    transform: scale(1.25);
+    opacity: 1;
+    transition: all .3s;
+}
+
+.mybtn {
+    color: #0f6674;
+}
+
+/*小窝头部个人信息及相关控制*/
+.personal {
+    font-family: 幼圆, serif;
+    font-size: 14px;
+}
+
+/*小窝签名*/
+.signature {
+    font-family: 华文仿宋, serif;
+}
+
+.personal .actively_start {
+    font-family: 微软华文中宋, serif;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 30px;
+    border: white 1px solid;
+    padding-inline: 10px;
+    line-height: 16px;
+    color: white;
+    background-color: rgba(119, 136, 153, 0.42);
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+/*未点亮*/
+.personal .actively_start:hover {
+    color: rgba(231, 199, 0, 0.91);
+    box-shadow: rgba(231, 199, 0, 0.91) 0 0 6px;
+    transition: all .3s;
+    border: #ffe600 1px solid !important;
+}
+
+/*点亮*/
+.star_lighting:hover {
+    color: #ffe600 !important;
+    box-shadow: #ffe600 0 0 6px !important;
+    transition: color .3s !important;
+    border: #ffe600 1px solid !important;
+}
+
+.personal .card_bg {
+    width: 100%;
+    height: 220px;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.personal .card_info_box {
+}
+
+.personal .card_info {
+    background-color: white;
+    font-size: 20px;
+    margin-top: -36px;
+}
+
+.personal .card_info_more {
+    padding: 0;
+    background-color: rgba(243, 244, 246, 1);
+}
+
+.personal .card_info .username {
+    font-family: 仿宋, serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: black 3px 3px 3px;
+}
+
+/*小窝主头像*/
+.personal .avatar {
+    display: block;
+    position: absolute;
+    top: 93px;
+    left: 36%;
+}
+
+.personal div {
+    padding-inline: 5px;
+    margin: 0;
+}
+
+.home_info {
+    font-family: 微软华文中宋, serif;
+    font-size: 14px;
+
+}
+
+.card_info_more img {
+    width: 50px;
+    height: 20px;
+}
+
+.card_info_more:hover .card_info_control {
+    background-color: rgba(190, 237, 248, 0.26);
+    transition: .3s;
+}
+
+
+/*个人空间附加模块*/
+.extra {
+    /*width: 150px;*/
+    /*height: 150px;*/
+}
+
+/*选项*/
+.selects {
+    /*margin-top: 15px;*/
+    /*margin-bottom: 15px;*/
+    /*height: 60px;*/
+    /*line-height: 60px;*/
+    /*background-color: #dbdbdb;*/
+}
+
+.selects span {
+    margin: 10px;
+}
+
+
+/*图片展示区 */
+.show {
+    box-shadow: #6c757d 1px 1px 0 0;
+}
+
+.show img {
+    margin: 25px;
+    width: 200px;
+    height: 200px;
+}
+
+.show_card {
+    width: 200px;
+}
+
+.show_card img {
+    /*margin: 25px;*/
+    width: 100%;
+    height: 100%;
+}
+
+/*动态*/
+.dynamic_per {
+    /*margin-left: 3rem;*/
+    /*margin-right: 3rem;*/
+    /*padding: 1rem 3rem;*/
+    /*padding-bottom: 5px;*/
+    padding: 1rem 1rem 0;
+    font-family: 微软雅黑, serif;
+}
+
+/*头像*/
+.dynamic_per img {
+    /*margin-left: 20px;*/
+    /*margin-top: 15px;*/
+}
+
+.dynamic_per .info {
+    font-size: 17px;
+    line-height: 1.5rem;
+    padding-top: .3rem;
+    padding-left: 3.8rem;
+    margin-bottom: .3rem;
+}
+
+.dynamic_per .username span {
+    margin-top: -8px;
+    position: absolute;
+    right: 3.5rem;
+    color: lightseagreen;
+}
+
+.dynamic_per .time {
+    font-family: 幼圆, bold, sans-serif;
+    font-size: 15px;
+    color: #9da0a4;
+}
+
+.dynamic_per .title {
+    margin-top: .5rem;
+}
+
+.dynamic_per .title span {
+    background-color: lightcoral;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    right: 3.5rem;
+}
+
+.dynamic_per .content {
+    /*margin-top: .5rem;*/
+    font-family: 微软雅黑, serif;
+    font-size: 15px;
+    font-weight: 500;
+    /*box-shadow: rgba(0,168,198,0.3) 0 0 3px inset;*/
+    border: rgba(128,128,128,0.3) 1px solid;
+    border-radius: 5px;
+    background-color: rgba(232,232,232,0.3);
+    line-height: 1.5rem;
+    padding: .6rem 1.5rem;
+    /*padding-bottom: rem;*/
+    /*padding-left: 3rem;*/
+    /*padding-right: 3rem;*/
+    color:rgba(30,32,42,0.8);
+    white-space: normal;
+    /*min-height: 100px;*/
+    /*max-height: 300px;*/
+    text-overflow: ellipsis;
+    overflow: hidden;
+    content: "...";
+}
+
+.dynamic_per .interact {
+    font-family: 幼圆, bold, sans-serif;
+    font-size: 14px;
+    /*margin-bottom: .5rem;*/
+}
+.dynamic_per .interact span {
+    margin-inline: 1rem;
+}
+.dynamic_per .interact * {
+    color: darkgrey;
+}
+
+.dynamic_per .interact a {
+    text-decoration: none;
+}
+
+.dynamic_per .interact span:hover *  {
+    color: #00a8c6;
+}
+
+.dynamic_per form {
+    /*padding-left: 1rem;*/
+    /*padding-right: 1rem;*/
+    padding-bottom: 16px;
+    /*border-bottom: silver 1px solid;*/
+}
+
+.dynamic_per form div input {
+    vertical-align: -2px
+}
+
+.form_submit {
+    border-radius: 5px;
+    margin-left: 1rem;
+    margin-right: 2rem;
+    background-color:#2da8c5;
+    padding-inline: .5rem;
+    padding-block: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+.form_submit:hover {
+    background-color:#386bcc;
+    transition: all .3s;
+}
+
+
+.dynamic_per form div {
+    display: none;
+    float: top;
+    transition: all 1s;
+    line-height: 1.5rem;
+}
+
+/*评论*/
+.comment_per {
+    font-size: 1rem;
+    /*padding-left: 1rem;*/
+    margin-top: .5rem;
+    /*margin-bottom: .3rem;*/
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.comment_per div {
+    padding-left: 3rem;
+}
+
+.comment_per a {
+    text-decoration: none;
+    color: rgba(55,161,149,1);
+}
+.comment_per a:hover {
+    text-decoration: none;
+    color: #007bff;
+}
+
+
+.comment_per .comment {
+    color: #4c4c4c;
+}
+
+.comment_input {
+    border: rgba(0,168,198,0.3) 1px solid!important;
+    margin-top: .8rem;
+    font-size: 14px !important;
+}
+
+/*主页动态的评论的菜单*/
+.comment_menu {
+    width: 20px;
+    float: right;
+    font-size: 12px;
+    white-space: nowrap;
+    margin-inline: 5px;
+    color: teal;
+    display: none;
+}
+.comment_per:hover .comment_menu {
+    display: block;
+}
+
+.comment_menu:hover {
+    text-decoration: none;
+    color: #007bff;
+    transition: all .3s;
+}
+
+
+/*社友互助*/
+/*.help_other .help_other_body {*/
+/*    padding-inline: 15px;*/
+/*    padding-block: 10px ;*/
+/*}*/
+
+/*主页动态操作菜单*/
+.dynamic_per .menu_body:hover {
+    display: block;
+}
+
+.dynamic_per .menu_box:hover .menu_control {
+    color: #00a8c6;
+}
+

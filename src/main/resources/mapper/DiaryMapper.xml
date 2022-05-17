@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.alix.amypets.mapper.DiaryMapper">
+    <select id="getByDid" resultMap="diaryMap">
+        SELECT diary.diary_id,diary.uid,cid, zid,
+               title, cover, content, `restrict`, `from`,clazz,
+               views, likes, reprints,
+               is_declare, is_comm, is_appr, is_top, state,
+               creator, created_time, modifier, modified_time
+            FROM t_zone_diary diary LEFT JOIN t_zone_diary_clazz clazz
+                ON diary.cid = clazz.clazz_id
+            WHERE diary.diary_id = #{did}
+    </select>
+
+    <select id="listByCondition" resultMap="diaryMap">
+        SELECT diary.diary_id,diary.uid,diary.cid, zid,
+               title, cover, content, `restrict`, `from`,clazz,
+               views, likes, reprints,
+               is_declare, is_comm, is_appr, is_top, state,
+               creator, created_time, modifier, modified_time
+            FROM t_zone_diary diary LEFT JOIN t_zone_diary_clazz clazz
+                ON diary.cid = clazz.clazz_id
+            <where>
+                <if test="state">
+                    AND state = #{state}
+                </if>
+                <if test="uid != null and uid != ''">
+                    AND diary.uid = #{uid}
+                </if>
+                ORDER BY
+                <if test="top">
+                    is_top DESC,
+                </if>
+                created_time DESC
+            </where>
+    </select>
+
+    <select id="listGetSimple" resultMap="diaryMap">
+        SELECT diary.diary_id,diary.uid,diary.cid,title
+            FROM t_zone_diary diary LEFT JOIN t_zone_diary_clazz clazz
+                ON diary.cid = clazz.clazz_id
+                    AND state AND diary.uid = #{uid}
+                       ORDER BY views DESC
+                            LIMIT 5
+    </select>
+
+    <select id="getClazzAndNum" resultMap="diaryMap">
+        SELECT clazz.clazz_id,clazz.clazz,COUNT(diary_id) num
+            FROM t_zone_diary diary LEFT JOIN t_zone_diary_clazz clazz
+                ON diary.cid = clazz.clazz_id
+                    WHERE diary.state AND diary.uid = #{uid}
+                        GROUP BY cid
+    </select>
+
+    <resultMap id="diaryMap" type="com.alix.amypets.bean.zone.Diary">
+        <id column="diary_id" property="id"/>
+        <result column="uid" property="uid"/>
+        <result column="zid" property="zid"/>
+        <result column="cid" property="cid"/>
+        <result column="title" property="title"/>
+        <result column="cover" property="cover"/>
+        <result column="content" property="content"/>
+        <result column="restrict" property="restrict"/>
+        <result column="from" property="from"/>
+        <result column="views" property="views"/>
+        <result column="likes" property="likes"/>
+        <result column="reprints" property="reprints"/>
+        <result column="state" property="state"/>
+        <result column="is_declare" property="declare"/>
+        <result column="is_comm" property="comm"/>
+        <result column="is_appr" property="appr"/>
+        <result column="is_top" property="top"/>
+        <result column="creator" property="creator"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="modifier" property="modifier"/>
+        <result column="modified_time" property="modifiedTime"/>
+        <collection property="clazz" ofType="com.alix.amypets.bean.zone.DiaryClazz">
+            <id column="clazz_id" property="cid"/>
+            <result column="uid" property="uid"/>
+            <result column="clazz" property="clazz"/>
+        </collection>
+    </resultMap>
+
+
+</mapper>

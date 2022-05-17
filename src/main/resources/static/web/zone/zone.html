@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的小窝 - 艾米社区</title>
+    <link rel="icon" type="image/x-ico" href="../../images/logo/logo-icon.png" />
+    <link rel="stylesheet" type="text/css" href="../../css/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/fonts/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/zone.css">
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script src="../../js/jquery.cookie.js"></script>
+    <script src="../../bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../../lib/waypoints/jquery.waypoints.min.js"></script>
+    <script src="../../lib/qrcode/qrcode.min.js"></script>
+    <script src="../../js/moment.js"></script>
+    <script src="../../js/scrollTo.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="../../js/zone.js"></script>
+    <script src="../../js/zonePlugins.js"></script>
+
+    <!-- 开发用样式 -->
+    <link rel="stylesheet" type="text/css" href="../../css/testcss.css">
+</head>
+<!--<body style="background-color:rgba(244,244,244,0.6);" background="../../images/bg/bg2.jpeg">-->
+<body>
+    <!-- zone common -->
+    <div class="zone_header"></div>
+    <script>$(".zone_header").load("../template/zone_header.html")</script>
+    <!-- 公共头部滚动条 -->
+<!--    <div id="head_slider" class="header shadow_bottom hide">-->
+<!--        <div class="left float-left">-->
+<!--            <span><a target="_blank" href="../../index.html">返回首页</a></span>-->
+<!--        </div>-->
+<!--        <div class="navigation right" align="right">-->
+<!--            <span>早上好：<a href="https://www.baidu.com">用户19532</a></span>-->
+<!--            <span class="spacer">|</span>-->
+<!--            <span><a href="https://www.baidu.com">购物车</a></span>-->
+<!--            <span class="spacer">|</span>-->
+<!--            <span><a href="https://www.baidu.com">订单详情</a></span>-->
+<!--            <span class="spacer">|</span>-->
+<!--            <span><a href="../zone/zone.html">我的小窝</a></span>-->
+<!--            <span class="spacer">|</span>-->
+<!--            <span><a href="https://www.baidu.com">我的会员</a></span>-->
+<!--            <span class="spacer">|</span>-->
+<!--            <span><a href="https://www.baidu.com">客服咨询</a></span>-->
+<!--            <span class="spacer">|</span>-->
+<!--            <span><a href="https://www.baidu.com">全站导航</a></span>-->
+<!--            <span class="spacer">|</span>-->
+<!--            <span><a href="https://www.baidu.com">移动端下载</a></span>-->
+<!--        </div>-->
+<!--        <hr>-->
+<!--    </div>-->
+
+
+    <!-- 主体页面 -->
+    <div id="headerPoint" class="container main ">
+        <div class="row">
+            <div class="col-9 corner_area">
+                <!-- 暂定 先就这样吧 -->
+                <div class="row">
+                    <div class="col selects alert btn-group animate__animated animate__fadeIn" role="alert" aria-label="...">
+                        <a href="zone.html" class="font_less btn btn-info">个人首页</a>
+                        <a href="" class="font_less btn btn-info">动态</a>
+                        <a href="diary.html" class="font_less btn btn-info">日记</a>
+                        <a href="" class="font_less btn btn-info">相册</a>
+                        <a href="" class="font_less btn btn-info">音乐盒</a>
+                        <a href="guestbook.html" class="font_less btn btn-info">留言板</a>
+                        <a href="about.html" class="font_less btn btn-info">关于我</a>
+                        <a href="" class="font_less btn btn-info">更多</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 area area_left">
+                        <div class="card">
+                            <div class="state card_title">
+                                <i class="bi bi-stars"></i>
+                                小窝状态
+                            </div>
+                            <div class="card_body">
+                                <div>等级 ☀☀☀★★</div>
+                                <div>动态 68条</div>
+                                <div>日志 99篇</div>
+                                <div>留言 1063条</div>
+                                <div>访问量 6.8k</div>
+                                <div>访客数 4.3k</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card_title">
+                                <i class="bi bi-patch-check"></i>
+                                签到
+                                <span class="font_mini">本月签到 3 次</span>
+                            </div>
+                            <div class="card_body">
+                                <div>签到表</div>
+                                <div>日历</div>
+                                <div>....</div>
+                                <div>....</div>
+                                <div>....</div>
+                            </div>
+                        </div>
+
+                        <!-- 时钟 -->
+                        <div class="extra animate__animated animate__fadeIn text-center">
+                            <div class="zzsc-content">
+                                <canvas id="clock3_" width="200px" height="200px" class="corner" style="color:rgba(0,0,0,0.88);">
+                                </canvas>
+                            </div>
+                            <script src="../../lib/clock/js/canvas_clock.js"></script>
+                            <script>
+                                clockd3_={
+                                    "indicate": true,
+                                    "indicate_color": "color:rgba(0,0,0,0.88)",
+                                    "dial1_color": "color:rgba(0,0,0,0.88)",
+                                    "dial2_color": "color:rgba(0,0,0,0.88)",
+                                    "dial3_color": "color:rgba(0,0,0,0.88)",
+                                    "time_add": 1,
+                                    "time_24h": true,
+                                    "date_add":3,
+                                    "date_add_color": "color:rgba(0,0,0,0.88)",
+                                };
+                                var c = document.getElementById('clock3_');
+                                cns3_ = c.getContext('2d');
+                                clock_norm(200,cns3_,clockd3_);
+                            </script>
+                        </div>
+                        <div class="card">
+                            <div class="state card_title">
+                                <i class="bi bi-people-fill"></i>
+                                今日访客 62
+                            </div>
+                            <div class="card_body text-center clear-padding">
+                                <b style="font-size: 8px">谁看过我 </b><a href="" style="font-size: 10px">| 我看过谁 |被挡访客</a> <br>
+                                <img src="../../images/cat.jpg" style="width: 40px;height: 40px;margin-inline: 2px;margin-bottom: 5px" class="corner" alt="">
+                                <img src="../../images/cat.jpg" style="width: 40px;height: 40px;margin-inline: 2px;margin-bottom: 5px" class="corner" alt="">
+                                <img src="../../images/cat.jpg" style="width: 40px;height: 40px;margin-inline: 2px;margin-bottom: 5px" class="corner" alt="">
+                                <img src="../../images/cat.jpg" style="width: 40px;height: 40px;margin-inline: 2px;margin-bottom: 5px" class="corner" alt="">
+                                <img src="../../images/cat.jpg" style="width: 40px;height: 40px;margin-inline: 2px;margin-bottom: 5px" class="corner" alt="">
+                                <img src="../../images/cat.jpg" style="width: 40px;height: 40px;margin-inline: 2px;margin-bottom: 5px" class="corner" alt="">
+                                <img src="../../images/cat.jpg" style="width: 40px;height: 40px;margin-inline: 2px;margin-bottom: 5px" class="corner" alt="">
+                                <img src="../../images/cat.jpg" style="width: 40px;height: 40px;margin-inline: 2px;margin-bottom: 5px" class="corner" alt="">
+                                <div>
+                                    <a href="">...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="state card_title">
+                                <i class="bi bi-share-fill"></i>
+                                友情链接
+                            </div>
+                            <div class="card_body">
+                                <span>
+                                    BaiDu、Bootstrap、Animate.css、Moment.js、Jquery、Jodit...
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="state card_title">
+                                <i class="bi bi-star-fill"></i>
+                                小窝成就
+                            </div>
+                            <div class="card_body">
+                                您好：<br>
+                                您已入住社区 386 天，超过96%的社友！<br>
+                                <b>已获成就</b><br>
+                                <a href="">超级达人、热心博主、社区小帮手、养宠老司机...</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="state card_title">
+                                <i class="bi bi-search"></i>
+                                意见调查
+                            </div>
+                            <div class="card_body">
+                                <span style="font-size: 12px">您会推荐本社区给其他亲友吗？</span><br>
+                                ☆☆☆☆☆<br>
+                                提出意见 <br>
+                                <input type="text" style="width: 70%;height: 20px"><a href="">[提交]</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 中部 主要内容区 -->
+                    <div class="col area area_middle" style="margin-right: 15px">
+                        <!-- idea快速编辑区域（点子、想法） -->
+                        <div class="idea_quick font_less">
+                            <form id="dynamicForm">
+                                <div class="font_mini gap hide" style="color:lightslategray">您已输入<span>0</span>字</div>
+                                <textarea id="dynamicText" name="content" maxlength="550" title="最多可输入500字，若您想记录更多可以选择发表日记"
+                                          class="indent_less" autocomplete="off" placeholder="写下你想记录的事情..."></textarea>
+                                <div class="idea_quick_menu hide div_in_row" style="height: 35px">
+                                    <div class="div_left">
+                                        ☺ | @ | #
+                                    </div>
+                                    <div class="div_right">
+                                        <div class="d-inline-block gap_col_1 ">
+                                            所有人可见
+                                        </div>
+                                        <div class="d-inline-block mybtn_normal text-center corner pointer"
+                                             onclick="$('#dynamicState-1').attr('checked','checked');newDynamicSubmit(true)">
+                                            发 表
+                                            <input id="dynamicState-1" type="radio" name="state" value="true" class="hide">
+                                            <input id="dynamicState-2" type="radio" name="state" value="false" class="hide">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <script>$(function (){pullDynamicList(false)})</script> <!-- 拉取动态列表 -->
+                        <div id="dynamic" class=" recent">
+                            <div class="recent_control">最近动态</div>
+                            <!-- 动态 具体的每条 -->
+                            <div class="dynamic_per">
+                                <img src="../../images/test/avatar%20(1).jpeg" class="avatar border_1 circle ava_left" alt="">
+                                <div class="info">
+                                    <div class="username">
+                                        <div class="menu_box gap_col_2">
+                                            <div class="menu_control padding_col"><i class="bi bi-caret-down"></i></div>
+                                            <div class="menu_body">
+                                                <a href="">删除</a>
+                                                <a href="">举报</a>
+                                            </div>
+                                        </div>
+                                        哈奇旺仔
+                                    </div>
+                                    <div class="time">2022年4月6日 16:33</div>
+                                </div>
+                                <p class="content text-justify">
+                                    我从小的梦想就是长大以后能够赚很多钱，在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布拉多犬，
+                                    以及一只黄金猎犬，每天过着悠闲的生活，无忧无虑，，和狗儿们相处的每一个片段，都深刻的保存在我的记意里，
+                                    他们不只是一只狗，他们更是我的朋友，我会永远记得他们，期待下次的相遇。
+                                </p>
+                                <div>
+                                    <div class="interact">
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-eye"></i>
+                                                6.3k
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-heart"></i>
+                                                1.5k
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-box-arrow-in-up-right"></i>
+                                                600
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="comment_per ">
+                                        <img src="../../images/test/avatar%20(3).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">双马尾小可爱：</div>
+                                        <div class="time font_mini">2022年4月6日 18:55</div>
+                                        <div class="comment font_less">看样子你今天玩的很开心呀！恭喜恭喜~</div>
+                                    </div>
+                                    <div class="comment_per ">
+                                        <img src="../../images/test/avatar%20(2).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">爱木：</div>
+                                        <div class="time font_mini">2022年4月8日 18:55</div>
+                                        <div class="comment font_less">
+                                            《我的父亲母亲》是电影。电影是集编剧，导演、演员、摄影、文学评论音乐、美工、剪辑、服装、
+                                            道具、化妆、灯光、特技等于一身的一种集体创作的综合艺术，影视评论既可对诸多方面做综合评论，
+                                            亦可对某一方面做重点评论。
+                                        </div>
+                                    </div>
+                                    <div class="comment_per ">
+                                        <img src="../../images/test/avatar%20(4).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">小粉猪：</div>
+                                        <div class="time font_mini">2022年4月6日 18:55</div>
+                                        <div class="comment font_less">我也想出去玩~下次有空我们带上猫猫一起去公园溜达溜达吧</div>
+                                    </div>
+                                </div>
+                                <form id="" action="">
+                                    <input class="comment_input form-control" type="text"
+                                           onfocus="showMenu($(this).next())"
+                                           maxlength="120" placeholder="说点儿什么吧~" autocomplete="off">
+                                    <div class="font_less gap gap_row_1">
+                                        <span class="gap_col_1">☺</span>
+                                        <span class="gap_col">@</span>
+                                        <span class="float-right">
+                                            <label for="">
+                                                <input type="checkbox" name="restrict"> 悄悄评论
+                                            </label>
+                                            <span class="form_submit pointer" onclick="commentSubmit(1,0)">
+                                                提交评论
+                                            </span>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- 动态 具体的每条 -->
+                            <div class="dynamic_per ">
+                                <img src="../../images/test/avatar%20(1).jpeg" class="avatar border_1 circle ava_left" alt="">
+                                <div class="info">
+                                    <div class="username">
+                                        <div class="menu_box gap_col_2">
+                                            <div class="menu_control padding_col"><i class="bi bi-caret-down"></i></div>
+                                            <div class="menu_body">
+                                                <a href="">删除</a>
+                                                <a href="">举报</a>
+                                            </div>
+                                        </div>
+                                        哈奇旺仔
+                                    </div>
+                                    <div class="time">2022年4月6日 16:33</div>
+                                </div>
+                                <p class="content text-justify">
+                                    我从小的梦想就是长大以后能够赚很多钱，在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布拉多犬，
+                                    以及一只黄金猎犬，每天过着悠闲的生活，无忧无虑，，和狗儿们相处的每一个片段，都深刻的保存在我的记意里，
+                                    他们不只是一只狗，他们更是我的朋友，我会永远记得他们，期待下次的相遇。
+                                    我从小的梦想就是长大以后能够赚很多钱，在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布拉多犬，
+                                    以及一只黄金猎犬，每天过着悠闲的生活，无忧无虑，，和狗儿们相处的每一个片段，都深刻的保存在我的记意里，
+                                    他们不只是一只狗，他们更是我的朋友，我会永远记得他们，期待下次的相遇。
+                                    我从小的梦想就是长大以后能够赚很多钱，在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布拉多犬，
+                                    以及一只黄金猎犬，每天过着悠闲的生活，无忧无虑，，和狗儿们相处的每一个片段，都深刻的保存在我的记意里，
+                                    他们不只是一只狗，他们更是我的朋友，我会永远记得他们，期待下次的相遇。
+                                </p>
+                                <div>
+                                    <div class="interact">
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-eye"></i>
+                                                6.3k
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-heart"></i>
+                                                1.5k
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-box-arrow-in-up-right"></i>
+                                                600
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="comment_per ">
+                                        <img src="../../images/test/avatar%20(3).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">双马尾小可爱：</div>
+                                        <div class="time font_mini">2022年4月6日 18:55</div>
+                                        <div class=" comment font_less">看样子你今天玩的很开心呀！恭喜恭喜~</div>
+                                    </div>
+                                    <div class="comment_per ">
+                                        <img src="../../images/test/avatar%20(2).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">爱木：</div>
+                                        <div class="time font_mini">2022年4月8日 18:55</div>
+                                        <div class=" comment font_less">
+                                            《我的父亲母亲》是电影。电影是集编剧，导演、演员、摄影、文学评论音乐、美工、剪辑、服装、
+                                            道具、化妆、灯光、特技等于一身的一种集体创作的综合艺术，影视评论既可对诸多方面做综合评论，
+                                            亦可对某一方面做重点评论。
+                                        </div>
+                                    </div>
+                                    <div class="comment_per">
+                                        <img src="../../images/test/avatar%20(4).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">小粉猪：</div>
+                                        <div class="time font_mini">2022年4月6日 18:55</div>
+                                        <div class=" comment font_less">我也想出去玩~下次有空我们带上猫猫一起去公园溜达溜达吧</div>
+                                    </div>
+                                </div>
+                                <form action="">
+                                    <input class="comment_input form-control" type="text"
+                                           onfocus="showMenu($(this).next())"
+                                           maxlength="120" placeholder="说点儿什么吧~" autocomplete="off">
+                                    <div class="font_less gap gap_row_1">
+                                        <span class="gap_col_1">☺</span>
+                                        <span class="gap_col">@</span>
+                                        <span class="float-right">
+                                            <label for="">
+                                                <input type="checkbox" name="restrict"> 悄悄评论
+                                            </label>
+                                            <span class="form_submit pointer" onclick="commentSubmit(1,0)">
+                                                提交评论
+                                            </span>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- 动态 具体的每条 -->
+                            <div class="dynamic_per ">
+                                <img src="../../images/test/avatar%20(1).jpeg" class="avatar border_1 circle ava_left" alt="">
+                                <div class="info">
+                                    <div class="username">
+                                        <div class="menu_box gap_col_2">
+                                            <div class="menu_control padding_col"><i class="bi bi-caret-down"></i></div>
+                                            <div class="menu_body">
+                                                <a href="">删除</a>
+                                                <a href="">举报</a>
+                                            </div>
+                                        </div>
+                                        哈奇旺仔
+                                    </div>
+                                    <div class="time">2022年4月6日 16:33</div>
+                                </div>
+                                <p class="content text-justify">
+                                    今天是我十岁的生日，妈妈说我们出去玩，妈妈还说:“佳佳，今天你过生日，你做主，到哪儿玩。”
+                                    我可高兴了，因为平时我是做不了主的。于是我说:“妈妈，你先带我去吃肯德基吧!然后我们到公园玩。”
+                                    今天是我十岁的生日，妈妈说我们出去玩，妈妈还说:“佳佳，今天你过生日，你做主，到哪儿玩。”
+                                </p>
+                                <div>
+                                    <div class="interact">
+                                         <span>
+                                            <a href="#">
+                                                <i class="bi bi-eye"></i>
+                                                6.3k
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-heart"></i>
+                                                1.5k
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-box-arrow-in-up-right"></i>
+                                                600
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="comment_per ">
+                                        <img src="../../images/test/avatar%20(3).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">双马尾小可爱：</div>
+                                        <div class="time font_mini">2022年4月6日 18:55</div>
+                                        <div class=" comment font_less">看样子你今天玩的很开心呀！恭喜恭喜~</div>
+                                    </div>
+                                    <div class="comment_per ">
+                                        <img src="../../images/test/avatar%20(2).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">爱木：</div>
+                                        <div class="time font_mini">2022年4月8日 18:55</div>
+                                        <div class=" comment font_less">
+                                            《我的父亲母亲》是电影。电影是集编剧，导演、演员、摄影、文学评论音乐、美工、剪辑、服装、
+                                            道具、化妆、灯光、特技等于一身的一种集体创作的综合艺术，影视评论既可对诸多方面做综合评论，
+                                            亦可对某一方面做重点评论。
+                                        </div>
+                                    </div>
+                                    <div class="comment_per">
+                                        <img src="../../images/test/avatar%20(4).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">小粉猪：</div>
+                                        <div class="time font_mini">2022年4月6日 18:55</div>
+                                        <div class=" comment font_less">我也想出去玩~下次有空我们带上猫猫一起去公园溜达溜达吧</div>
+                                    </div>
+                                </div>
+                                <form action="">
+                                    <input class="comment_input form-control" type="text"
+                                           onfocus="showMenu($(this).next())"
+                                           maxlength="120" placeholder="说点儿什么吧~" autocomplete="off">
+                                    <div class="font_less gap gap_row_1">
+                                        <span class="gap_col_1">☺</span>
+                                        <span class="gap_col">@</span>
+                                        <span class="float-right">
+                                            <label for="">
+                                                <input type="checkbox" name="restrict"> 悄悄评论
+                                            </label>
+                                            <span class="form_submit pointer" onclick="commentSubmit(1,0)">
+                                                提交评论
+                                            </span>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- 动态 具体的每条 -->
+                            <div class="dynamic_per ">
+                                <img src="../../images/test/avatar%20(1).jpeg" class="avatar border_1 circle ava_left" alt="">
+                                <div class="info">
+                                    <div class="username">
+                                        <div class="menu_box gap_col_2">
+                                            <div class="menu_control padding_col"><i class="bi bi-caret-down"></i></div>
+                                            <div class="menu_body">
+                                                <a href="">删除</a>
+                                                <a href="">举报</a>
+                                            </div>
+                                        </div>
+                                        哈奇旺仔
+                                    </div>
+                                    <div class="time">2022年4月6日 16:33</div>
+                                </div>
+                                <p class="content text-justify">
+                                    今天是我十岁的生日，妈妈说我们出去玩，妈妈还说:“佳佳，今天你过生日，你做主，到哪儿玩。”
+                                    我可高兴了，因为平时我是做不了主的。于是我说:“妈妈，你先带我去吃肯德基吧!然后我们到公园玩。”
+                                    妈妈很爽快的便答应了，我们到了肯德基店里，我要了两个汉堡包，一杯今天是我十岁的生日，妈妈说我们出去玩，妈妈还说:“佳佳，今天你过生日，你做主，到哪儿玩。”
+                                    今天是我十岁的生日，妈妈说我们出去玩，妈妈还说:“佳佳，今天你过生日，你做主，到哪儿玩。”
+                                </p>
+                                <div>
+                                    <div class="interact">
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-eye"></i>
+                                                6.3k
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-heart"></i>
+                                                1.5k
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a href="#">
+                                                <i class="bi bi-box-arrow-in-up-right"></i>
+                                                600
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="comment_per ">
+                                        <img src="../../images/test/avatar%20(3).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">双马尾小可爱：</div>
+                                        <div class="time font_mini">2022年4月6日 18:55</div>
+                                        <div class=" comment font_less">看样子你今天玩的很开心呀！恭喜恭喜~</div>
+                                    </div>
+                                    <div class="comment_per ">
+                                        <img src="../../images/test/avatar%20(2).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">爱木：</div>
+                                        <div class="time font_mini">2022年4月8日 18:55</div>
+                                        <div class=" comment font_less">
+                                            《我的父亲母亲》是电影。电影是集编剧，导演、演员、摄影、文学评论音乐、美工、剪辑、服装、
+                                            道具、化妆、灯光、特技等于一身的一种集体创作的综合艺术，影视评论既可对诸多方面做综合评论，
+                                            亦可对某一方面做重点评论。
+                                        </div>
+                                    </div>
+                                    <div class="comment_per">
+                                        <img src="../../images/test/avatar%20(4).jpeg" class="avatar_mini circle border_1 ava_left" alt="">
+                                        <div>
+                                            <span class="comment_menu pointer">举报</span>
+                                            <span onclick="deleteComment(0)" class="comment_menu pointer">删除</span>
+                                        </div>
+                                        <div class="username font_less">小粉猪：</div>
+                                        <div class="time font_mini">2022年4月6日 18:55</div>
+                                        <div class=" comment font_less">我也想出去玩~下次有空我们带上猫猫一起去公园溜达溜达吧</div>
+                                    </div>
+                                </div>
+
+                                <form action="">
+                                    <input class="comment_input form-control" type="text"
+                                           onfocus="showMenu($(this).next())"
+                                           maxlength="120" placeholder="说点儿什么吧~" autocomplete="off">
+                                    <div class="font_less gap gap_row_1">
+                                        <span class="gap_col_1">☺</span>
+                                        <span class="gap_col">@</span>
+                                        <span class="float-right">
+                                            <label for="">
+                                                <input type="checkbox" name="restrict"> 悄悄评论
+                                            </label>
+                                            <span class="form_submit pointer" onclick="commentSubmit(1,0)">
+                                                提交评论
+                                            </span>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div style="" class="text-center blank_bottom gap_row_1">展开更多</div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 右侧栏 功能 -->
+            <div class="col area area-right">
+                <!-- 个人信息 -->
+                <div class="personal card_info_box corner_area clear-padding text-center">
+                    <span class="actively_start pointer star_lighting" title="当前是活跃之星用户">★ ACTIVELY STAR</span>
+                    <img class="card_bg corner_area" src="../../images/bg/card_bg1.jpg" alt="">
+                    <img src="../../images/test/avatar1.png" class="avatar circle ava_large border_2" alt="">
+                    <div class="card_info clear-padding">
+                        <div class="username">飞翔的小黄猫Alix</div>
+                        <div class="padding_row">
+                            <div class="font_mini">
+                                <span class="follow">关注 325</span>
+                                <span class="fans">粉丝 3.6k</span>
+                            </div>
+                            <div class="signature font_less font-weight-bold">这个人很酷，什么都没有留下</div>
+                        </div>
+                        <div class="card_info_more" onclick="hideOrShow($('.home_info'))">
+                            <div class="card_info_control pointer">
+                                <img src="../../bootstrap/icons/chevron-compact-down.svg" class="pointer" alt="">
+                            </div>
+                            <div class="home_info font_less hide border-top">
+                                <div class="home_code">社区编号 65033129798</div>
+                                <div class="home_age">社龄 1年8月&nbsp;加入时间 2021-6-8</div>
+                                <div class="email">65033129798@amys.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-center" style="border-radius: 0 0 15px 15px">
+                    <div class="card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-qr-code-scan"></i>
+                        扫描二维码
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"></i>
+                    </div>
+                    <div class="card_body">
+                        <span>添加我为社区好友</span><br>
+                        <img class="qrCode" src="../../images/test/code.png" title="别扫了 扫不出来的" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-info-square"></i>
+                        公告信息
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"></i>
+                    </div>
+                    <div class="card_body">
+                        暂时还没有公告
+                    </div>
+                </div>
+                <div class="card diary_clazz">
+                    <div class="card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-list"></i>
+                        日记分类
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"></i>
+                    </div>
+                    <div class="card_body">
+                        <div><a href="diary.html?did=12">日常 15<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">美食 20<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">宠物 33<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">视频 8<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">其他 5<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                    </div>
+                </div>
+                <div class="card diary_tag">
+                    <div class="card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-tags"></i>
+                        日记标签
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"></i>
+                    </div>
+                    <div class="card_body text-center">
+                        <span>玩耍</span>
+                        <span>撸猫</span>
+                        <span>遛猫遛狗</span>
+                        <span>打游戏</span>
+                        <span>旅游</span>
+                        <span>聚会</span>
+                        <span>随笔</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-journal-check"></i>
+                        日记推荐
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"></i>
+                    </div>
+                    <div id="diaryRecommend" class="card_body">
+                        <div><a href="diary_per.html">
+                            1 简单的对宠物进行健康检查</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div><a href="">
+                            2 遛狗的正确打开方式！</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            3 如何给猫猫刷牙</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            4 狗狗凶人怎么教育？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            5 养一只猫一个月要花费多少马内？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div>
+                            <a href="">展开更多</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="help_other card" >
+                    <div class="card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-chat-heart"></i>
+                        社友求助
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"></i>
+                    </div>
+                    <div class="card_body">
+                        <div><a href="diary_per.html">
+                            1 请问大佬，小猫走路腿发抖是缺钙了吗？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div><a href="">
+                            2 大大可以写一篇猫咪饮食方面的小tips嘛？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            3 求助！！！小仓鼠不吃饭了！！</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            更多问题...</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <script>
+
+                    /**
+                     * 接口 初始化主页近期留言
+                     */
+                    function initZoneGuest() {
+                        $.ajax({
+                            url:"/dy",
+                            type:"GET",
+                            data:data,
+                            dataType:"JSON",
+                            success:function (data) {
+                                if (data.state) {
+
+                                } else {
+                                    $showClazz.append("<div><a href=\"#\" onclick='initDiaryClazzAndNum()'>加载失败 重新加载" +
+                                        "<i class=\"show_hide bi bi-forward hide float-right\"></i></a></div>")
+                                }
+                            },
+                            error:function (xhr) {
+                                popup("当前网络异常，请检查后重新登录","error");
+                            }
+                        })
+                    }
+                </script>
+                <div class="zone_guest card">
+                    <div class="card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-journal-text"></i>
+                        近期留言
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"></i>
+                    </div>
+                    <div class="card-body " style="padding-block: 5px">
+                        <div class="gap_row">
+                            <img src="../../images/test/avatar%20(3).jpeg" class="avatar_mini circle" alt="">
+                            <a href="">小黄帽</a>
+                            <div>
+                                谢谢你，上次的问题解决了，非常感谢。
+                            </div>
+                        </div>
+                        <div class="gap_row">
+                            <img src="../../images/test/avatar%20(1).jpeg" class="avatar_mini circle" alt="">
+                            <a href="">小萨</a>
+                            <div>
+                                博主人非常好，nice！
+                            </div>
+                        </div>
+                        <div class="gap_row">
+                            <img src="../../images/test/avatar%20(4).jpeg" class="avatar_mini circle" alt="">
+                            <a href="">小粉猪</a>
+                            <div>
+                                感谢感谢！
+                            </div>
+                        </div>
+                        <div class="gap_row">
+                            <img src="../../images/test/avatar1.png " class="avatar_mini circle" alt="">
+                            <a href="">小粉猪</a>
+                            <div>
+                                感谢感谢！
+                            </div>
+                        </div>
+                        <div class="gap_row">
+                            <img src="../../images/test/avatar%20(2).jpeg" class="avatar_mini circle" alt="">
+                            <a href="">小粉猪</a>
+                            <div>
+                                感谢感谢！
+                            </div>
+                        </div>
+                        <div class="gap_row">
+                            <a href="guestbook.html">前往留言板查看更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- mini卡片展示 -->
+<!--        <div class="row show">-->
+
+<!--            <div class="col all_center"><img src="../../images/dog1.png" alt="" class="corner shadow_mini"></div>-->
+<!--            <div class="col all_center"><img src="../../images/dog1.png" alt="" class="corner shadow_mini"></div>-->
+<!--            <div class="col all_center"><img src="../../images/dog1.png" alt="" class="corner shadow_mini"></div>-->
+<!--            <div class="col all_center"><img src="../../images/dog1.png" alt="" class="corner shadow_mini"></div>-->
+<!--        </div>-->
+        <!-- 主区 -->
+
+    </div>
+
+    <!-- footer -->
+    <div class="page_foot"></div>
+    <script>$(".page_foot").load("../template/footer.html")</script>
+
+    <!--
+        页面数据初始化加载
+     -->
+    <script>
+        $(function () {
+
+
+        })
+    </script>
+
+    <!--
+       组件
+    -->
+    <!-- 弹窗 -->
+    <div id="popup_tip" class="popup_box hide">
+        <div class="all_center">
+            <div class="popup_body">
+                <img src="../../images/icons/tips/info.png" alt="">
+                <div class="popup_content">可爱的用户，你好~</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 音乐播放器 -->
+        <audio controls style="position: fixed;right: 0;bottom: 0">
+            <source src="../../music/stars%20are%20blinking☆.mp3" type="audio/mpeg">
+        </audio>
+<!--    </div>-->
+</body>
+</html>

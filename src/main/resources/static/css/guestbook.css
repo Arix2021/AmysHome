@@ -1,0 +1,142 @@
+/*留言板主体*/
+.guestbook {
+
+}
+
+.guestbook * {
+    font-family: 微软雅黑, serif, bold;
+}
+
+.guestbook .title {
+    border-bottom: silver 2px solid;
+    line-height: 40px
+}
+
+.guestbook .tips {
+    font-size: 13px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    background: rgba(255, 114, 78, 0.5);
+    border-radius: 3px;
+
+}
+
+/*留言区*/
+.guest {
+
+}
+
+/*欢迎板*/
+.greet .setting {
+    position: absolute;
+    right: 40px;
+}
+.greet .content {
+    margin: 10px 20px 20px 20px;
+    min-height: 150px;
+}
+
+/*每条留言*/
+. guest_per {
+    /*min-height: 135px;*/
+}
+
+.guest_per div > div * {
+    width: 40px;
+    font-size: 12px;
+    white-space: nowrap;
+    color: teal;
+    display: none;
+}
+.guest_per:hover div > div * {
+    display: inline;
+}
+
+.guest_per div > div *:hover {
+    text-decoration: none;
+    color: #007bff;
+    transition: all .3s;
+}
+
+.guest_per .avatar {
+    float: left;
+    margin-top: 3px;
+    margin-left: 15px;
+}
+
+.guest_per .right {
+    margin-bottom: 15px;
+    margin-left:80px;
+}
+
+.guest_per .info *{
+    margin-left: 5px;
+}
+
+.guest_per .setting {
+    position: absolute;
+    right: 15px;
+}
+
+.guest_per .content {
+    min-height: 50px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+/*进行留言*/
+.guesting .tip {
+    color: teal;
+    font-size: 12px;
+    float: right;
+    font-weight: normal;
+}
+.guesting .control {
+    line-height: 25px;
+    height: 50px;
+}
+
+.guestbook .guesting > div {
+}
+.guestbook .guesting textarea {
+    width: 100%;
+    resize: none;
+}
+
+.guestbook .guesting .form_submit {
+    width: 80px;
+    line-height: 22px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+
+/*滚动条*/
+.interact {
+    background:#f6fae4;
+    height: 60px;
+    width: 1120px;
+    position: fixed;
+    bottom: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 0 5px #000000;
+    overflow: hidden;
+    z-index: 9;
+}
+
+.interact input {
+    width: 600px;
+}
+
+.interact:hover {
+    height: 150px;
+}
+
+.greet .control > span {
+    color: rgba(0,123,255,1);
+}
+.greet .control > span:hover {
+    color: rgba(0,86,179,1);
+}

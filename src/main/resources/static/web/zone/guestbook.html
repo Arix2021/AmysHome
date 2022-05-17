@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板 - 艾米社区</title>
+    <link rel="icon" type="image/x-ico" href="../../images/logo/logo-icon.png" />
+    <link rel="stylesheet" type="text/css" href="../../css/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/fonts/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/zone.css">
+    <link rel="stylesheet" type="text/css" href="../../css/about.css">
+    <link rel="stylesheet" type="text/css" href="../../css/diary.css">
+    <link rel="stylesheet" type="text/css" href="../../css/guestbook.css">
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script src="../../js/jquery.cookie.js"></script>
+    <script src="../../bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../../bootstrap/js/bootstrap.js"></script>
+    <script src="../../js/moment.js "></script>
+    <script src="../../js/base.js"></script>
+    <script src="../../js/zone.js"></script>
+    <script src="../../js/zonePlugins.js"></script>
+
+    <!-- 开发用样式 -->
+    <link rel="stylesheet" type="text/css" href="../../css/testcss.css">
+</head>
+<body>
+    <!-- zone common -->
+    <div class="zone_header"></div>
+    <script>$(".zone_header").load("../template/zone_header.html")</script>
+
+    <!-- 主体页面 -->
+    <div class="container main">
+        <div class="row" style="min-height: 1350px">
+            <div class="col-9 corner_area">
+                <!-- 暂定 先就这样吧 -->
+                <div class="row">
+                    <div class="col selects alert btn-group animate__animated animate__fadeIn" role="alert" aria-label="...">
+                        <a href="zone.html" class="font_less btn btn-info">个人首页</a>
+                        <a href="" class="font_less btn btn-info">点子</a>
+                        <a href="diary.html" class="font_less btn btn-info">日记</a>
+                        <a href="" class="font_less btn btn-info">相册</a>
+                        <a href="" class="font_less btn btn-info">音乐盒</a>
+                        <a href="guestbook.html" class="font_less btn btn-info">留言板</a>
+                        <a href="about.html" class="font_less btn btn-info">个人档</a>
+                        <a href="" class="font_less btn btn-info">更多</a>
+                    </div>
+                </div>
+                <!-- 主区 留言板 -->
+                <script>
+                    var pageNo = 1;
+                    var pageSize = 10;
+                    initGuestbook(pageNo,pageSize);
+                </script>
+                <div class="row">
+                    <div class="col-10 offset-1 guestbook">
+                        <div class="title font_normal">留言板</div>
+                        <div class="tips">
+                            [ ! ] 当前留言默认模式为非好友审核，陌生人的留言都需要经过博主审核后才能发布！
+                            <!--
+                                mode1 默认模式 所有留言需要经过审核
+                                mode2 好友模式 陌生人留言需要经过审核
+                                mode3 自由模式 所有人留言不需要经过审核
+                                mode4 权限模式 禁止留言
+                                mode5 隐私模式 禁止留言并隐藏所有已存在留言
+                             -->
+                        </div>
+                        <div class="greet font_normal">
+                            <div class="border_bottom">
+                                <span class="font_less">欢迎你的到来</span>
+                                <span class="setting">
+                                    <a href="" class="font_mini">留言板管理</a>
+                                </span>
+                            </div>
+                            <div class="content font_less">
+                                和大家打个招呼吧~
+                            </div>
+                            <div class="guesting font_less hide">
+                                <div class="font-weight-bold gap">
+                                    请编辑您的留言
+                                    <span class="tip hide"></span>
+                                </div>
+                                <form id="guestbook-1">
+                                    <textarea name="content" maxlength="550" title="最多可输入500字" rows="5" required
+                                             class="indent_less" autocomplete="off" placeholder="想对ta说什么"></textarea>
+                                    <div class="control">
+                                        <div class="form_submit all_center font_less" onclick="guestSubmit(1)">提 交</div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="control font_mini">
+                                <b>留言(3800)</b>
+                                <span id="guestingControl" class="pointer">我也说两句</span>
+                                <span style="position: absolute;right: 40px"> <a href="">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">下一页</a></span>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <!-- 留言区 -->
+                        <div class="guest">
+                            <!-- 每条留言 -->
+                            <div class="guest_per">
+                                <img src="../../images/test/avatar%20(2).jpeg" class="float-left avatar border_1" alt="">
+                                <div class="right">
+                                    <div class="float-right font_mini">
+                                        <span onclick="deleteGuest(0)" class="pointer">删除</span>
+                                        <span class="pointer">举报</span>
+                                    </div>
+                                    <span class="username">辣笔小心</span>
+                                    <span class="info font_mini">
+                                    <span>263 楼</span>
+                                    <span>2022-3-16 16:42</span>
+                                    </span>
+
+                                    <div class="content font_less">
+                                        博主你好你好！！
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <!-- 每条留言 -->
+                            <div class="guest_per">
+                                <img src="../../images/test/avatar%20(4).jpeg" class="avatar border_1" alt="">
+                                <div class="right">
+                                    <div class="float-right font_mini">
+                                        <span onclick="deleteGuest(0)" class="pointer">删除</span>
+                                        <span class="pointer">举报</span>
+                                    </div>
+                                    <span class="username">小粉猪</span>
+                                    <span class="info font_mini">
+                                    <span>262 楼</span>
+                                    <span>2022-3-13 13:21</span>
+                                    </span>
+                                    <div class="content font_less">
+                                        博主生活中一定是个非常温柔的人！真心希望可以在现实中交到博主这样的好朋友！！
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <!-- 每条留言 -->
+                            <div class="guest_per">
+                                <img src="../../images/test/avatar%20(1).jpeg" class="avatar border_1" alt="">
+                                <div class="right">
+                                    <div class="float-right font_mini">
+                                        <span onclick="deleteGuest(0)" class="pointer">删除</span>
+                                        <span class="pointer">举报</span>
+                                    </div>
+                                    <span class="username">只要每天快乐就好了</span>
+                                    <span class="info font_mini">
+                                    <span>263 楼</span>
+                                    <span>2022-3-16 16:42</span>
+                                    </span>
+                                    <div class="content font_less">
+                                        来看看博主的留言板，不出意外果然有很多人给博主留言哈哈哈，博主人气真是越来越高了！
+                                        来看看博主的留言板，不出意外果然有很多人给博主留言哈哈哈，博主人气真是越来越高了！
+                                        来看看博主的留言板，不出意外果然有很多人给博主留言哈哈哈，博主人气真是越来越高了！
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="font_mini" style="position: absolute;right: 40px"> <a href="">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">下一页</a></span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 右侧栏 功能 -->
+            <div class="col area area-right">
+                <!-- 个人信息 -->
+                <div class="personal card_info_box corner_area clear-padding text-center">
+                    <span class="actively_start pointer star_lighting" title="当前是活跃之星用户">★ ACTIVELY STAR</span>
+                    <img class="card_bg corner_area" src="../../images/bg/card_bg1.jpg" alt="">
+                    <img src="../../images/test/avatar1.png" class="avatar circle ava_large border_2" alt="">
+                    <div class="card_info clear-padding">
+                        <div class="username">飞翔的小黄猫Alix</div>
+                        <div class="padding_row">
+                            <div class="font_mini">
+                                <span>关注 325</span>
+                                <span>粉丝 3.6k</span>
+                            </div>
+                            <div class="signature font_less font-weight-bold">这个人很酷，什么都没有留下</div>
+                        </div>
+                        <div class="card_info_more" onclick="hideOrShow($('.home_info'))">
+                            <div class="card_info_control pointer">
+                                <img src="../../bootstrap/icons/chevron-compact-down.svg" class="pointer" alt="">
+                            </div>
+                            <div class="home_info font_less hide border-top">
+                                <div class="home_code">社区编号 65033129798</div>
+                                <div class="home_age">社龄 1年8月&nbsp;加入时间 2021-6-8</div>
+                                <div class="email">65033129798@amys.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-center" style="border-radius: 0 0 15px 15px">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-qr-code-scan"></i>
+                        扫描二维码
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body">
+                        <span>添加我为社区好友</span><br>
+                        <img class="qrCode" src="../../images/test/code.png" title="别扫了 扫不出来的" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        
+                        <i class="bi bi-info-square"></i>
+                        公告信息
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body">
+                        暂时还没有公告
+                    </div>
+                </div>
+                <div class="card diary_clazz">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-list"></i>
+                        日记分类
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body">
+                        <div><a href="diary.html?did=12">日常 15<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">美食 20<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">宠物 33<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">视频 8<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">其他 5<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                    </div>
+                </div>
+                <div class="card diary_tag">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-tags"></i>
+                        日记标签
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body text-center">
+                        <span>玩耍</span>
+                        <span>撸猫</span>
+                        <span>遛猫遛狗</span>
+                        <span>打游戏</span>
+                        <span>旅游</span>
+                        <span>聚会</span>
+                        <span>随笔</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-journal-check"></i>
+                        日志推荐
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div id="diaryRecommend" class="card_body">
+                        <div><a href="diary_per.html">
+                            1 布偶猫不吃东西怎么办？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div><a href="">
+                            2 遛狗的正确打开方式！</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            3 给猫猫刷牙</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            4 狗狗凶人怎么教育？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            5 养一只猫一个月要花费多少马内？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div><a href="">
+                            展开更多 <i class="bi bi-plus-lg"></i></a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="page_foot"></div>
+    <script>$(".page_foot").load("../template/footer.html")</script>
+
+    <!--
+        组件
+     -->
+
+    <!-- 弹窗 -->
+    <div id="popup_tip" class="popup_box hide">
+        <div class="all_center">
+            <div class="popup_body">
+                <img src="../../images/icons/tips/info.png" alt="">
+                <div class="popup_content">可爱的用户，你好~</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

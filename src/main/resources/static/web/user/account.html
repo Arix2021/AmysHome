@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进入社区 - 艾米的宠物社区</title>
+<!--    <base href="/">-->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script src="../../js/jquery.cookie.js"></script>
+    <!--    <script src="../../bootstrap/js/bootstrap.min.js"></script>-->
+    <script src="../../bootstrap/js/bootstrap.js"></script>
+    <script src="../../js/base.js"></script>
+    <!-- 开发用样式 -->
+</head>
+<body class="mainbody">
+
+    <!-- header -->
+    <div class="header">
+        <div class="left" style="float: left">
+            <span><a target="_blank" href="../../index.html">返回首页</a></span>
+        </div>
+        <div class="navigation right" align="right">
+            <span><a href="account.html" >你好，请登录</a></span>
+            <span class="spacer">|</span>
+            <span><a href="https://www.baidu.com">购物车</a></span>
+            <span class="spacer">|</span>
+            <span><a href="https://www.baidu.com">订单详情</a></span>
+            <span class="spacer">|</span>
+            <span><a href="../zone/zone.html">我的小窝</a></span>
+            <span class="spacer">|</span>
+            <span><a href="https://www.baidu.com">我的会员</a></span>
+            <span class="spacer">|</span>
+            <span><a href="https://www.baidu.com">客服咨询</a></span>
+            <span class="spacer">|</span>
+            <span><a href="https://www.baidu.com">全站导航</a></span>
+            <span class="spacer">|</span>
+            <span><a href="https://www.baidu.com">移动端下载</a></span>
+        </div>
+        <hr>
+    </div>
+
+
+    <!-- 主体页面 -->
+    <div class="container main" style="position: relative;top: 65px">
+        <!-- 界面标语提示信息 -->
+        <div class="row">
+            <div class="col text-left">
+                <div class="account_tip">
+                    <div class="account_tip_title">亲爱的用户，您好：</div>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="account_tip_text">
+                        艾米社区适合面向所有人，在这里您可以了解关于宠物的一切。
+                        若您是新手主人，您可以和老司机一起学习如何更好的与爱宠生活;
+                        若您是宠物达人，您可以将自己的养宠经验与他人一起分享。
+                        和众多友善的主人以及可爱的小家伙们一起欢乐交流吧！祝您愉快~
+                    </span>
+                </div>
+            </div>
+        </div>
+        <hr style="background-color:rgba(100,100,100,0.3);">
+        <!-- 账号面板 登录 / 注册 -->
+        <div class="row account">
+            <!-- 左侧图片 -->
+            <div class="col-6">
+                <img src="../../images/welcome.png" style="width: 500px;height: 420px;position: relative;left: 18px" alt="">
+            </div>
+            <!-- 右侧面板 -->
+            <div class="col-5 text-center border">
+                <div class="col text-center panel_control">
+                    登录 | 注册
+                    <hr>
+                </div>
+                <div class="panel">
+                    <div id="tips" style="height: 20px"></div>
+                    <form id="login_form">
+                        <label for="login_name">
+                            账号&nbsp;&nbsp;<input id="login_name" name="username" type="text" placeholder="请输入账号" required
+                                                 autofocus>
+                        </label>
+                        <label for="login_pwd">
+                            密码&nbsp;&nbsp;<input id="login_pwd" name="password" type="text" placeholder="请输入密码"
+                                                 autocomplete="off"
+                                                 required autofocus>
+                        </label>
+                        <div>验证码<img src="/captcha" class="captcha" alt=""></div>
+                        <div>
+                            <span><button id="to_reg" type="button">前往注册</button></span>
+                            <span><button id="login_submit" type="button">登录</button></span>
+                        </div>
+                    </form>
+                    <form id="register_form" style="display: none">
+                        <label for="reg_name">
+                            账号&nbsp;&nbsp;<input id="reg_name" name="username" type="text" placeholder="请输入账号" required
+                                                 autofocus>
+                        </label>
+                        <label for="reg_pwd">
+                            密码&nbsp;&nbsp;<input id="reg_pwd" name="password" type="text" placeholder="请输入密码"
+                                                 autocomplete="off"
+                                                 required autofocus>
+                        </label>
+                        <div>验证码<img src="/captcha" class="captcha" alt=""></div>
+                        <div>
+                            <span><button id="to_login" type="button">前往登录</button></span>
+                            <span><button id="register_submit" type="button">注册</button></span>
+                        </div>
+                    </form>
+                    <hr>
+                    <div>提示：请保管好自己的账号及密码，建议定期更新以加强安全性</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入脚部 -->
+    <div class="footer fixed_bottom">
+        <div>
+            <span><a href="https://www.baidu.com">关于社区</a></span>
+            <span><a href="https://www.baidu.com">About Amy's</a></span>
+            <span><a href="https://www.baidu.com">服务协议</a></span>
+            <span><a href="https://www.baidu.com">全站地图</a></span>
+            <span><a href="https://www.baidu.com">帮助中心</a></span>
+            <span><a href="https://www.baidu.com">意见反馈</a></span>
+            <span><a href="https://www.baidu.com">举报</a></span>
+            <span>
+                <a href="https://www.baidu.com">
+                    <img src="../../images/icons/tel.png" alt="">
+                    400-192-2022
+                </a>
+            </span>
+            <span>
+                <a href="https://www.baidu.com">
+                <img src="../../images/icons/email.png" alt="">
+                    welcome@amyhome.com
+                </a>
+            </span>
+            <span><a href="https://www.baidu.com">在线客服 QQ 8164236875&nbsp;&nbsp;8458171517</a></span>
+            <span><a href="https://www.baidu.com">工作时间 9:30~22:00 工作日内</a></span>
+        </div>
+        <div>
+            <span>Copyright © 2022 alix.cn All Rights Reserved</span>
+            <span>
+                浏览器支持&nbsp;&nbsp;&nbsp;
+                <img src="../../images/icons/chrome.png" alt="">&nbsp;&nbsp;
+                <img src="../../images/icons/edge.png" alt="">&nbsp;&nbsp;
+                <img src="../../images/icons/ie.png" alt="">&nbsp;&nbsp;
+                <img src="../../images/icons/huohu.png" alt="">&nbsp;&nbsp;
+                <img src="../../images/icons/360.png" alt="">(11)
+            </span>
+        </div>
+    </div>
+
+    <!--
+        组件
+    -->
+
+    <!-- 弹窗 -->
+    <div id="popup_tip" class="popup_box hide">
+        <div class="all_center">
+            <div class="popup_body">
+                <img src="../../images/icons/tips/info.png" alt="">
+                <div class="popup_content">可爱的用户，你好~</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function (){
+
+            // 登录注册切换
+            let tl = $("#to_login");
+            let tr = $("#to_reg");
+            let lf = $("#login_form");
+            let rf = $("#register_form");
+            tr.click(function () {
+                console.log("切换注册");
+                lf.hide();
+                rf.show();
+            })
+            tl.click(function () {
+                console.log("切换登录");
+                rf.hide();
+                lf.show();
+            })
+
+            let tips = $("#tips");
+            tips.html("请输入账号和密码");
+            // 登录
+            $("#login_submit").click(function () {
+                $.ajax({
+                    url: "/users",
+                    type: "GET",
+                    data: $("#login_form").serialize(),
+                    dataType: "JSON",
+                    success: function (data) {
+                        if (data.state) {
+                            var user = data.data;
+                            console.log("登录成功" + user.username);
+                            $.cookie("userId",user.id, {expires: 1,path:'/'});
+                            $.cookie("username",user.username, {expires: 1,path:'/'});
+                            // $.cookie("uid", data.avatar, {expires: 7,path:'/'});
+                            // $.cookie("username", data.username, {expires: 7,path:'/'});
+                            // $.cookie("nickname", data.nickname, {expires: 7,path:'/'});
+                            // $.cookie("avatar", data.avatar, {expires: 7,path:'/'});
+                            // $.cookie("avatar", data.avatar, {expires: 7,path:'/'});
+                            tips.html("正在登录...");
+                            setTimeout("location.href = \"/web/zone/zone.html\"",1000)
+                        } else {
+                            console.log("登录失败" + data.msg);
+                            tips.html(data.msg)
+                        }
+                    },
+                    error:function (xhr){
+                        console.log("登录时产生错误");
+                    }
+                })
+            })
+
+            // 注册
+            $("#register_submit").click(function () {
+                $.ajax({
+                    url: "/users",
+                    type: "POST",
+                    data: $("#register_form").serialize(),
+                    dataType: "JSON",
+                    success: function (data) {
+                        if (data.state) {
+                            popup("注册成功，您好 " + data.data.username,"pass");
+                            setTimeout("location.href = \"/web/user/account.html\"",1000)
+                        } else {
+                            tips.html(data.msg)
+                        }
+                    },
+                    error: function (xhr) {
+                        console.log("注册时产生错误");
+                    }
+                })
+            })
+        })
+
+    </script>
+</body>
+</html>

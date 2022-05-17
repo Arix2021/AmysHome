@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录 - 后台管理</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/admin.css">
+</head>
+<body class="admin_box">
+<div class="admin">
+    <div class="login shadow_mini border_1 corner">
+        <div class="title t1">Welcome Admin</div>
+        <div class="title t2">Login in to your account</div>
+        <div>
+            <form id="adminForm">
+                <div>
+                    <img src="../../bootstrap/icons/person-fill.svg" alt="">
+                    <input id="username" placeholder="username" name="username" type="text" autocomplete="off"
+                           autofocus>
+                </div>
+                <div>
+                    <img src="../../bootstrap/icons/lock-fill.svg" alt="">
+                    <input id="password" placeholder="password" name="password" type="password" autocomplete="off">
+                </div>
+                <div>
+                    <input class="cipher" type="text" placeholder="请输入管理员密钥" autocomplete="off">
+                </div>
+                <div>
+                    <input class="submit pointer" type="button" value="Login">
+                </div>
+            </form>
+            <span class="tip hide">请勿频繁点击</span>
+            <span class="reg_btn"><a href="#" class="">register</a> in here</span>
+        </div>
+    </div>
+</div>
+
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../js/jquery-3.6.0.min.js"></script>
+<script src="../../js/mytools.js"></script>
+<script src="../../js/admin.js"></script>
+</body>
+</html>

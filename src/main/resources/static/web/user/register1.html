@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录 - 艾米的宠物社区</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base_css.css">
+    <!-- 开发用样式 -->
+    <link rel="stylesheet" type="text/css" href="../../css/testcss.css">
+</head>
+<body class="panel_body">
+
+<div class="panel" align="center">
+    <form id="register_form">
+        <div>
+            <label for="username">
+                账号&nbsp;&nbsp;<input id="username" name="username" type="text" placeholder="请输入账号" required autofocus>
+            </label>
+        </div>
+        <div>
+            <label for="password">
+                密码&nbsp;&nbsp;<input id="password" name="password" type="text" placeholder="请输入密码" autocomplete="off" required autofocus>
+            </label>
+        </div>
+        <div>验证码<img src="/captcha" alt=""></div>
+        <div>
+            <span><a href="login1.html">前往登录</a></span>
+            <span><input id="submit" type="button" value="注册"></span>
+        </div>
+    </form>
+</div>
+
+<script src="../../js/jquery-3.6.0.min.js"></script>
+<script>
+    $("#submit").click(function () {
+        $.ajax({
+            url: "/users",
+            type: "POST",
+            data: $("#register_form").serialize(),
+            dataType: "JSON",
+            success: function (res) {
+                if (res.state) {
+                    console.log("注册成功");
+                } else {
+                    console.log("注册失败");
+                }
+                location.href = "/index.html";
+            },
+            error: function (xhr) {
+                console.log("注册时产生错误");
+            }
+        })
+    })
+</script>
+</body>
+</html>

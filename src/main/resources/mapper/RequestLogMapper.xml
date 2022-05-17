@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.alix.amypets.mapper.RequestLogMapper">
+<!--    <select id="getAll" resultMap="requestLogMap">-->
+<!--        SELECT id, url, ip, method, args, res,-->
+<!--               local_port, server_port, client_port,-->
+<!--               runtime, date-->
+<!--            FROM t_log_request-->
+<!--    </select>-->
+
+<!--    <insert id="add" useGeneratedKeys="true" keyProperty="id">-->
+<!--        INSERT INTO t_log_request-->
+<!--            VALUES (-->
+<!--                    null,#{url},#{ip},#{method},#{args},#{res},-->
+<!--                    #{local_port},#{server_port},#{client_port},-->
+<!--                    #{runtime},#{date}-->
+<!--                   )-->
+<!--    </insert>-->
+
+    <resultMap id="requestLogMap" type="com.alix.amypets.bean.RequestLog">
+        <id property="id" column="id"/>
+        <result property="localPort" column="local_port"/>
+        <result property="serverPort" column="server_port"/>
+        <result property="clientPort" column="client_port"/>
+    </resultMap>
+</mapper>

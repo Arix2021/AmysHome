@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.alix.amypets.mapper.DynamicMapper">
+
+    <select id="getByDyid" resultMap="dynamicMap">
+        SELECT dynamic_id, uid, zid, user.avatar,content, `restrict`,
+                views, likes, reprints, is_top, state,dynamic.creator,dynamic.created_time
+            FROM t_zone_dynamic dynamic LEFT JOIN t_user user
+                ON dynamic.uid = user.user_id
+                    WHERE dynamic_id = #{dyid}
+    </select>
+
+    <select id="listByCondition" resultMap="dynamicMap">
+        SELECT dynamic_id, uid, zid, user.avatar,content, `restrict`,
+                views, likes, reprints, is_top, state,dynamic.creator,dynamic.created_time
+            FROM t_zone_dynamic dynamic LEFT JOIN t_user user
+                ON dynamic.uid = user.user_id
+                <where>
+                    <if test="state and !uid">
+                        AND state = #{state}
+                    </if>
+                    <if test="uid != null and uid != ''">
+                        AND uid = #{uid}
+                    </if>
+                    ORDER BY
+                    <if test="top">
+                        is_top DESC,
+                    </if>
+                    created_time
+                </where>
+    </select>
+
+    <resultMap id="dynamicMap" type="com.alix.amypets.bean.zone.Dynamic">
+        <id column="dynamic_id" property="dyid"/>
+        <result column="uid" property="uid"/>
+        <result column="zid" property="zid"/>
+        <result column="content" property="content"/>
+        <result column="restrict" property="restrict"/>
+        <result column="views" property="views"/>
+        <result column="likes" property="likes"/>
+        <result column="reprints" property="reprints"/>
+        <result column="is_top" property="top"/>
+        <result column="state" property="state"/>
+        <result column="creator" property="creator"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="avatar" property="avatar"/>
+    </resultMap>
+</mapper>

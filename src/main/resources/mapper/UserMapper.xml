@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.alix.amypets.mapper.UserMapper">
+
+    <select id="getInfoByUid" resultMap="UserInfoMap">
+        SELECT user_id uid, nickname, username, password, salt, is_delete, avatar, type,
+               info_id iid, realname, age, gender, phone, email,
+               creator, created_time, modifier, modified_time
+            FROM t_user RIGHT JOIN t_user_info
+                ON t_user.user_id = t_user_info.info_id
+                    WHERE uid=#{uid}
+    </select>
+
+    <resultMap id="UserInfoMap" type="com.alix.amypets.bean.user.User">
+        <id column="uid" property="id"/>
+        <result column="info_id" property="userinfo.id"/>
+        <result column="nickname" property="nickname"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="salt" property="salt"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="avatar" property="avatar"/>
+        <result column="type" property="type"/>
+        <result column="realname" property="UserInfo.realname"/>
+        <result column="age" property="UserInfo.age"/>
+        <result column="gender" property="UserInfo.gender"/>
+        <result column="phone" property="UserInfo.phone"/>
+        <result column="email" property="UserInfo.email"/>
+        <result column="creator" property="creator"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="modifier" property="modifier"/>
+        <result column="modified_time" property="modifiedTime"/>
+    </resultMap>
+</mapper>

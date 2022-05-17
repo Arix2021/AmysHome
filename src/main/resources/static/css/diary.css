@@ -1,0 +1,625 @@
+.diary_area {
+    background-color: white;
+    /*min-height: 750px;*/
+    margin-bottom: 50px;
+}
+
+/**
+ *  所有日记的列表
+ */
+/*日记导航条*/
+.navbar_diary {
+}
+
+.navbar_diary div {
+    line-height: 45px;
+    padding-inline: 1rem;
+    display: table-cell;
+}
+
+/*每条展示的日记*/
+.diary_per:hover {
+    border-inline: #17a2b8 5px solid;
+    transition: all .3s;
+}
+
+.diary_per:hover .title {
+    color: #17a2b8;
+    transition: all .3s;
+}
+
+.diary_per:hover .diary_cover {
+    filter: brightness(.9);
+    box-shadow: rgba(23, 178, 168, 0.2) 0 0 .3rem 3px;
+    transition: all .3s;
+}
+
+.diary_per .title:hover {
+    color: #1b8f87;
+    transition: all .3s;
+}
+
+.diary_per {
+    height: 140px;
+    font-size: 14px;
+    margin-inline: 20px;
+    padding-block: 15px;
+    padding-inline: 20px;
+}
+
+.diary_per .body {
+    position: relative;
+    width: 80%;
+}
+
+/*封面*/
+.diary_per .diary_cover {
+    width: 150px;
+    height: 105px;
+    float: right;
+}
+
+.diary_class {
+    font-size: 12px;
+    color: white;
+    line-height: 20px;
+    background: #ff7c56;
+    border-radius: 15px;
+    padding-inline: 10px;
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    z-index: -1;
+}
+
+.diary_per:hover .diary_class {
+    z-index: 6;
+    position: absolute;
+    right: 2px;
+    transition: all .5s;
+}
+
+.diary_per .menu_control {
+    display: none;
+}
+
+.diary_per:hover .menu_control {
+    display: block;
+}
+
+.diary_per .menu_box:hover .menu_body {
+    display: block;
+}
+
+.diary_per .title {
+    font-family: 幼圆, serif;
+    font-weight: bold;
+    font-size: 18px;
+    opacity: .85;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    cursor: pointer;
+    margin-bottom: 7px;
+}
+
+.diary_per .content {
+    font-family: 华文细黑, serif;
+    font-size: 15px;
+    font-weight: 300;
+    height: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 26px
+}
+
+.diary_per .interact {
+    margin-left: -40px;
+}
+
+.diary_per li {
+    list-style: none;
+    /*margin-right: 15px;*/
+    margin-right: 5.8%;
+}
+
+.diary_per .interact * {
+    float: left;
+    font-family: 华文细黑, serif;
+    color: rgba(57, 61, 78, 0.71);
+}
+
+/**
+ *  每篇日记的内容
+ */
+
+/*日志全局配置*/
+.diary {
+    /*margin: 20px;*/
+    /*position: relative;*/
+    background-color: white;
+    padding-inline: 15px;
+}
+
+.diary * {
+    font-family: 华文细黑, serif;
+}
+
+/*日志标题*/
+.diary .title {
+    font-size: 30px;
+    padding-inline: 1rem;
+    background-color: lightgray;
+
+}
+.diary .title div {
+    float: right;
+    line-height: 60px;
+}
+.diary .title div a {
+    text-decoration: none;
+}
+
+/*日志相关信息*/
+.diary_info {
+    padding-inline: 10px;
+    background-color: lightgray;
+    border-radius: 0 0 10px 10px;
+    border-top: white 1px solid;
+    border-bottom: silver 1px solid;
+    padding-top: .3rem;
+    padding-bottom: .5rem;
+    border-bottom: silver 1px solid;
+    box-shadow: 0 .3rem 1rem -8px silver !important
+    /*margin-top: .3rem;*/
+    /*margin-bottom: 1rem;*/
+}
+
+.diary_info div {
+    height: 27px;
+    padding-inline: 10px;
+}
+
+.diary_info span {
+    margin-inline: 10px;
+}
+
+
+/*日志整体区域*/
+
+/*日志主体*/
+.diary_body {
+    /*padding-block: .5rem;*/
+    /*margin-top: 1rem;*/
+    /*padding-top: 1rem;*/
+    /*position: relative;*/
+}
+
+/*日志内容*/
+.diary_body div {
+    /*字体*/
+    /*font-size: 17px;*/
+    /*font-family: bold, 华文细黑 serif;*/
+    /*line-height: 30px;*/
+    /*排版*/
+    padding-inline: 2rem;
+    padding-top: 1rem;
+}
+
+/*滚动条 互动日志 点赞/评论/转发/收藏*/
+.diary_interact {
+    background: #f6fae4;
+    height: 60px;
+    width: 45%;
+    /*min-width: 764px;*/
+    /*padding-inline: 15px;*/
+    position: fixed;
+    bottom: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 0 5px #000000;
+    /*overflow: hidden;*/
+    /*display: none;*/
+}
+
+/*评论区*/
+.area_comment .div {
+    margin-block: 1rem;
+    font-size: 1rem !important;
+}
+
+/*每条评论*/
+.comment img {
+    float: left;
+    position: relative;
+    left: 1rem;
+    border-radius: 100%;
+}
+
+.comment div {
+    padding: 0;
+    /*padding-inline: 1.4rem;*/
+    margin-left: 80px;
+}
+
+/*选项 日志区*/
+.option {
+    font-family: 华文新魏, sans-serif;
+    /*font-weight: bold;*/
+    font-size: 16px;
+    color: white;
+    width: 80px;
+    /*控制栏上下留白*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 1.5rem;
+    margin-left: 15px;
+    margin-top: 0;
+    background-color: rgba(42,29,59,.8);
+    transition: all 1s;
+    position: fixed;
+    /*box-shadow: silver -.1rem 0 .3rem;*/
+}
+
+.option:hover {
+    /*transform: translate(0, 1rem);*/
+    /*-webkit-transform: translate(0, 1rem);*/
+    /*-moz-transform: translate(0, 1rem);*/
+    /*-o-transform: translate(0, 1rem);*/
+    /*-ms-transform: translate(0, 1rem);*/
+}
+
+.a {
+    /*width: 205px;*/
+    /*transition:ease-in-out 1s;*/
+
+}
+
+.b {
+    /*width: 200px;*/
+    /*height: 50px;*/
+    /*text-align: center;*/
+    transition: ease-out 1s;
+    line-height: 40px;
+    /*height: ;*/
+}
+
+.c {
+    /*width: 200px;*/
+    /*height: 300px;*/
+    font-size: 16px;
+    background-color: gainsboro;
+    display: none;
+    /*visibility: hidden;*/
+}
+
+.c ul {
+    list-style: none;
+    margin-left: -40px;
+}
+
+.c ul li {
+    line-height: 35px;
+    /*display: block;*/
+
+    /*width: 200px;*/
+    text-align: center;
+    cursor: pointer;
+    transition: ease-out .5s;
+
+}
+
+.a:hover .b {
+    background-color: #db538f;
+    /*transition:color 1s;*/
+    transition: ease .3s;
+    margin-left: -3.5rem;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+}
+
+
+.a:hover .c {
+    display: block;
+    color: lightslategray;
+    float: top;
+    transition: ease-in-out 1s;
+}
+
+
+.c ul li:hover {
+    line-height: 40px;
+    background-color: gray;
+    color: #FFFFFF;
+    transition: ease .3s;
+    margin-left: -2rem;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+}
+
+/*写文章*/
+.new {
+    border: silver 1px solid;
+    border-radius: 10px 10px 0 0;
+    /*min-height: 960px;*/
+    margin-bottom: 50px;
+    margin-inline: 15px;
+}
+
+.new * {
+    background-color: white;
+    border: 0;
+}
+
+.new_title {
+    background-color: #d6d8d9;
+    line-height: 35px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.textarea {
+    min-height: 800px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    outline: none;
+    font-size: 17px;
+    line-height: 1.8rem;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.textarea:focus {
+    border: none;
+}
+
+/*文章发布控制栏面板*/
+#newDiaryForm .control {
+    line-height: 25px;
+    width: 100%;
+    padding: .5rem 1.5rem;
+    border-top: silver 1px solid;
+    box-shadow: silver 0 0 .3rem;
+    color: #0056b3;
+}
+
+#newDiaryForm .control_item {
+    margin-block: 10px;
+    font-size: 1rem;
+
+    /*line-height: 2rem;*/
+}
+
+#newDiaryForm .custom-control-input {
+    line-height: 5rem !important;
+}
+
+#newDiaryForm .control div div {
+    display: table-cell;
+    /*padding-left: 3rem;*/
+}
+
+#newDiaryForm .control_item span {
+    border: rgba(192,192,192,0.5) 1px solid;
+    margin-left: 1.2rem;
+    padding: 5px 1rem;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+#newDiaryForm .control .custom-control {
+    padding-left: 3.5rem;
+}
+
+#newDiaryForm .control .submit_right {
+    /*margin-left: 50%;*/
+}
+
+/*写日记时选择分类的盒子*/
+.clazz_box {
+    border:rgba(192,192,192,0.5) 1px solid;
+    border-radius: 5px;
+    width: 500px;
+    padding: 10px 10px 50px;
+    position: relative;
+    left: 105px;
+    top: 15px;
+}
+.clazz_box label {
+    border:rgba(192,192,192,0.5) 1px solid;
+    font-size: 14px;
+    line-height: 20px;
+    padding-inline: 10px;
+    margin-inline: 3px;
+    margin-block: 3px;
+    cursor: pointer;
+}
+
+.clazz_box label:hover {
+    background-color:rgba(23,162,184,0.1)
+}
+
+
+/*文件上传*/
+.file_up {
+    display: table-cell;
+    padding-top: .5rem;
+    line-height: 2.5rem;
+}
+
+.file_up * {
+    border: 0;
+}
+
+.file_up .file_up_col {
+    width: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    color: white;
+    background-color: #0372fa; /*颜色1同步*/
+}
+
+.file_up label {
+    border-radius: 1rem;
+    background-color: #0372fa; /*颜色1同步*/
+}
+
+.file_up label:hover {
+    box-shadow: lightskyblue 0 0 .3rem;
+    transition: all .3s;
+}
+
+.file_up label:hover .file_up_btn {
+    background-color: #cecece;
+    transition: all .3s;
+}
+
+.file_up_btn {
+    font-family: 微软华文中宋, sans-serif;
+    color: #545b62;
+    font-size: 15px;
+    background-color: #e1e1e1;
+}
+
+#read_enhanced {
+    width: 100%;
+    height: 2.3rem;
+    opacity: 0.5;
+    box-shadow: 0 0 .3rem .1rem rgba(0, 0, 0, .3) !important;
+    color: transparent;
+    border-top: silver 1px solid;
+    border-bottom: silver 1px solid;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    position: absolute;
+    right: 0;
+    pointer-events: none;
+}
+
+
+/*目录区域
+    目录在toctop中设置
+*/
+
+/*所有日志 -右侧：目录/类似文章推荐*/
+#diary_area_s_right {
+    position: fixed;
+    top: 40%;
+}
+
+/*模态框*/
+.modal .row *:not(span), .modal .col {
+    padding: 0 !important;
+}
+
+.modal-dialog {
+    font-size: 18px;
+    line-height: 50px;
+    position: fixed;
+    top: 80px;
+    margin-inline: 23%;
+}
+
+.modal-content {
+    width: 1000px;
+    height: 800px;
+
+}
+
+.modal-body {
+    margin-inline: 8%;
+}
+
+.modal-body .row {
+    height: 100%;
+}
+
+.modal_left div:hover {
+    background-color: rgba(43, 59, 133, 0.2);
+    box-shadow: rgba(255, 189, 57, 0.2) 0 0 3px 3px;
+    transition: all .3s;
+}
+
+.modal_left * {
+}
+
+.modal_right {
+    /*padding-inline: 2rem!important;*/
+}
+
+.modal_function_area {
+    width: 100%;
+    height: 100%;
+    /*margin-inline: 15px;*/
+    /*margin-top: 5px;*/
+    border: silver 1px solid;
+    box-shadow: silver 0 0 3px inset;
+}
+
+.modal_function_area table {
+    font-size: 16px;
+    width: 100%;
+    border-bottom: silver 1px solid;
+    /*height: 100%;*/
+}
+
+.modal_function_area tr:hover {
+    background-color: lightgrey;
+
+}
+
+.modal_function_area .page_control {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.modal button {
+    line-height: 10px;
+    width: 100px;
+    height: 38px;
+}
+
+.modal button:hover, .modal .row_control span:hover {
+    cursor: pointer;
+    border: rgba(255, 186, 77, 0.6) 1px solid !important;
+    box-shadow: rgba(255, 189, 57, 0.2) 0 0 .3rem .3rem;
+    transition: all .3s !important;
+}
+
+.add_new_class img {
+    width: 28px;
+    height: 28px;
+    opacity: .65;
+}
+
+.add_new_class img:hover {
+    cursor: pointer;
+    width: 31px;
+    height: 31px;
+    opacity: .75;
+    transition: all .1s;
+}
+
+.row_control {
+    width: 200px;
+}
+
+/*hot标签*/
+.icon_hot {
+    width: 45px;
+    height: 30px;
+    margin-top: -10px;
+}

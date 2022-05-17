@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于我 - 艾米社区</title>
+    <link rel="icon" type="image/x-ico" href="../../images/logo/logo-icon.png" />
+    <link rel="stylesheet" type="text/css" href="../../css/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/fonts/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/zone.css">
+    <link rel="stylesheet" type="text/css" href="../../css/about.css">
+    <link rel="stylesheet" type="text/css" href="../../css/diary.css">
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script src="../../js/jquery.cookie.js"></script>
+    <script src="../../bootstrap/js/bootstrap.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="../../js/zone.js"></script>
+    <script src="../../js/zonePlugins.js"></script>
+
+    <!-- 开发用样式 -->
+    <link rel="stylesheet" type="text/css" href="../../css/testcss.css">
+</head>
+<body>
+    <!-- zone common -->
+    <div class="zone_header"></div>
+    <script>$(".zone_header").load("../template/zone_header.html")</script>
+
+    <!-- 主体页面 -->
+    <div class="container main">
+        <div class="row">
+            <div class="col-9 corner_area">
+                <!-- 暂定 先就这样吧 -->
+                <div class="row">
+                    <div class="col selects alert btn-group animate__animated animate__fadeIn" role="alert" aria-label="...">
+                        <a href="zone.html" class="font_less btn btn-info">个人首页</a>
+                        <a href="" class="font_less btn btn-info">动态</a>
+                        <a href="diary.html" class="font_less btn btn-info">日记</a>
+                        <a href="" class="font_less btn btn-info">相册</a>
+                        <a href="" class="font_less btn btn-info">音乐盒</a>
+                        <a href="guestbook.html" class="font_less btn btn-info">留言板</a>
+                        <a href="about.html" class="font_less btn btn-info">关于我</a>
+                        <a href="" class="font_less btn btn-info">更多</a>
+                    </div>
+                </div>
+                <!-- 个人档（关于我） -->
+                <div class="row">
+                    <div class="col-10 offset-1 about">
+                        <div class="row about_title font_normal font-weight-bold alert-dark">
+                            关于我<span class="font_less">&nbsp;&nbsp;about me</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 left">
+                                <img src="../../images/dog1.png" class="avatar ava_larger border_3" alt="">
+                                <div><a href="/avatars" methods="PUT" class="all_center font_mini">修改头像</a></div>
+                            </div>
+                            <div class="col right">
+                                <div id="control" class="control shadow_bottom">
+                                    <button class="selected " href="/zone/info">个人资料</button>
+                                    <button href="/zone/plan">年度计划</button>
+                                    <button href="/zone/history">流金岁月</button>
+                                    <button href="/zone/friend">共同好友</button>
+                                    <button href="/zone/more">更多</button>
+                                </div>
+                                <div id="personal_info" class="personal_info font_mini">
+                                    <div id="info_base" class="about_title no_back border_top font_less font-weight-bold">
+                                        基本资料 <a class="font_mini put_right_1">修改</a>
+                                    </div>
+                                    <div class="indent">昵称：<span class="info font-weight-bold">飞翔的小黄猫Alix</span></div>
+                                    <div class="indent">社区ID：<span class="info font-weight-bold">955624731</span></div>
+                                    <div class="indent">性别：<span class="info font-weight-bold">男</span></div>
+                                    <div class="indent">年龄：<span class="info font-weight-bold"></span></div>
+                                    <div class="indent">生日：<span class="info font-weight-bold"></span></div>
+                                    <div id="info_emotion" class="about_title no_back border_top font_less font-weight-bold">
+                                        情缘信息<a class="font_mini put_right_1">修改</a>
+                                    </div>
+                                    <div class="indent">属相：<span class="info font-weight-bold">虎</span></div>
+                                    <div class="indent">星座：<span class="info font-weight-bold">狮子座</span></div>
+                                    <div class="indent">血型：<span class="info font-weight-bold">O</span>型</div>
+                                    <div class="indent">婚姻状况：<span class="info font-weight-bold">未婚</span></div>
+                                    <div class="indent">兴趣爱好：<span class="info font-weight-bold"></span></div>
+                                    <div class="indent">个人介绍：<span class="info font-weight-bold"></span></div>
+                                    <div id="info_edu" class="about_title no_back border_top font_less font-weight-bold">
+                                        教育技能<a class="font_mini put_right_1">修改</a>
+                                    </div>
+                                    <div class="indent">学历：<span class="info font-weight-bold"></span></div>
+                                    <div class="indent">专业：<span class="info font-weight-bold"></span></div>
+                                    <div class="indent">外语：<span class="info font-weight-bold"></span></div>
+                                    <div class="indent">技能：<span class="info font-weight-bold"></span></div>
+                                    <div id="info_other" class="about_title no_back border_top font_less font-weight-bold">
+                                        其他<a class="font_mini put_right_1">修改</a>
+                                    </div>
+                                    <div class="indent">现居地：<span class="info font-weight-bold">陕西西安</span></div>
+                                    <div class="indent">故乡：<span class="info font-weight-bold"></span></div>
+                                    <div class="indent">职业：<span class="info font-weight-bold">Java开发工程师</span></div>
+                                    <div class="indent">公司名称：<span class="info font-weight-bold"></span></div>
+                                    <div class="indent">公司所在地：<span class="info font-weight-bold"></span></div>
+                                    <div class="indent">详细地址：<span class="info font-weight-bold"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧栏 功能 -->
+            <div class="col area area-right">
+                <!-- 个人信息 -->
+                <div class="personal card_info_box corner_area clear-padding text-center">
+                    <span class="actively_start pointer star_lighting" title="当前是活跃之星用户">★ ACTIVELY STAR</span>
+                    <img class="card_bg corner_area" src="../../images/bg/card_bg1.jpg" alt="">
+                    <img src="../../images/test/avatar1.png" class="avatar circle ava_large border_2" alt="">
+                    <div class="card_info clear-padding">
+                        <div class="username">飞翔的小黄猫Alix</div>
+                        <div class="padding_row">
+                            <div class="font_mini">
+                                <span>关注 325</span>
+                                <span>粉丝 3.6k</span>
+                            </div>
+                            <div class="signature font_less font-weight-bold">这个人很酷，什么都没有留下</div>
+                        </div>
+                        <div class="card_info_more" onclick="hideOrShow($('.home_info'))">
+                            <div class="card_info_control pointer">
+                                <img src="../../bootstrap/icons/chevron-compact-down.svg" class="pointer" alt="">
+                            </div>
+                            <div class="home_info font_less hide border-top">
+                                <div class="home_code">社区编号 65033129798</div>
+                                <div class="home_age">社龄 1年8月&nbsp;加入时间 2021-6-8</div>
+                                <div class="email">65033129798@amys.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-center" style="border-radius: 0 0 15px 15px">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-qr-code-scan"></i>
+                        扫描二维码
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body">
+                        <span>添加我为社区好友</span><br>
+                        <img class="qrCode" src="../../images/test/code.png" title="别扫了 扫不出来的" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-info-square"></i>
+                        公告信息
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body">
+                        暂时还没有公告
+                    </div>
+                </div>
+                <div class="card diary_clazz">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-list"></i>
+                        日记分类
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body">
+                        <div><a href="diary.html?did=12">日常 15<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">美食 20<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">宠物 33<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">视频 8<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">其他 5<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                    </div>
+                </div>
+                <div class="card diary_tag">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-tags"></i>
+                        日记标签
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body text-center">
+                        <span>玩耍</span>
+                        <span>撸猫</span>
+                        <span>遛猫遛狗</span>
+                        <span>打游戏</span>
+                        <span>旅游</span>
+                        <span>聚会</span>
+                        <span>随笔</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-journal-check"></i>
+                        日志推荐
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div id="diaryRecommend" class="card_body">
+                        <div><a href="diary_per.html">
+                            1 布偶猫不吃东西怎么办？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div><a href="">
+                            2 遛狗的正确打开方式！</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            3 给猫猫刷牙</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            4 狗狗凶人怎么教育？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            5 养一只猫一个月要花费多少马内？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div><a href="">
+                            展开更多 <i class="bi bi-plus-lg"></i></a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="page_foot"></div>
+    <script>$(".page_foot").load("../template/footer.html")</script>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            // 控制按钮
+            const controls = $("#control").children();
+            controls.click(function () {
+                // 将所有控制恢复默认
+                controls.css({
+                    "border":"silver 1px solid",
+                    "box-shadow":"silver 0 0 .3rem 0",
+                    "font-weight":"normal",
+                    "border-bottom": "0"
+            })
+                // 将该元素样式改为选中
+                $(this).css({
+                    "border":" silver 1px solid",
+                    "box-shadow":"cadetblue 0 0 .3rem 0",
+                    // "border-bottom":"0",
+                    "font-weight":"bold"
+                })
+            })
+        })
+    </script>
+</body>
+</html>

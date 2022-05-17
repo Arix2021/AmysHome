@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>项目信息</title>
+    <base href="/static/">
+    <link rel="stylesheet"  href="css/base.css">
+    <link rel="stylesheet"  href="css/admin.css">
+</head>
+<body>
+<div  class="project_info">
+
+    <h2>艾米的宠物社区</h2>
+    <div class="title"><b>项目简介</b></div>
+    <div> 这是一个以宠物为主题的综合性网上社区，集社交、休闲、购物于一体。</div>
+    <div class="title"><b>主要模块</b></div>
+    <div><b>用户模块</b>（√）：登录、注册、修改密码、个人资料、上传头像</div>
+    <div><b>社区模块</b></div>
+    <div>· 个人空间（√）：空间主页、访问记录、发表动态日志、点赞/转发/收藏/评论、留言版块、好友互动</div>
+    <div>· 论坛博客：关键字搜索、热点文章推送、社区互动、热点话题、话题讨论</div>
+    <div><b>商城模块</b></div>
+    <div>· 商品搜索、热销商品排行展示、点赞/评论/收藏/关注、商品促销（秒杀、优惠券、团购、会员）、购物车、订单、用户收货地址、库存</div>
+    <div><b>系统后台</b></div>
+    <div>· 基础功能（√）：用户管理、权限管理、系统管理员、数据统计</div>
+    <div>· 系统日志（√）：管理员操作日志、请求记录、拦截记录、访问记录、业务性能监测、在线用户/总用户、用户注册量、活跃用户</div>
+    <div class="title"><b>负责模块</b></div>
+    <div>
+        目前阶段已完成部分皆由本人独立开发、测试、部署运行，初步阶段对数据库表和业务进行设计构思，并且逐步测试优化。<br>
+        在设计表时使用ezdml数据库表设计工具，使表设计更便捷高效，基于快速开发思维，做了简单的业务层逻辑控制，保证基本需求得到满足，
+        并且保障一定的安全性。在后续工作中，会考虑放慢新业务的开发，从而提高已完成部分业务的健壮性，在后台系统日志方面，部分数据记录不够完善，
+        需要对部分表和业务代码进行重新设计和开发。在个人空间业务中准备新增好友动态推送，以完善该模块的用户互动性。<br>
+        使用Redis统一管理session，解放数据库压力，后续还会考虑使用Nginx反向代理负载均衡进行部署。
+    </div>
+    <div class="title"><b>开发周期</b></div>
+    <div>2022-4-1 ~ 至今</div>
+    <div class="title"><b>技术选用</b></div>
+    <div>后端：JavaEE、SpringBoot2、MyBatisPlus、Maven、Ajax、RESTful、自定义异常、自定义拦截器</div>
+    <div>前端：HTML5、CSS、JS、jQuery3.6、Bootstrap4</div>
+    <div class="title"><b>开发环境</b></div>
+    <div>JDK8、Mysql5.7、Git、Linux、IDEA21.2、Chrome</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.alix.amypets.mapper.CommentMapper">
+    <select id="listByTopicId" resultMap="commentMap">
+        SELECT comment_id,module,topic_id,uid,u.user_id,u.username,u.avatar,content,c.creator,c.created_time
+            FROM t_comment c LEFT JOIN t_user u ON c.uid = u.user_id
+                WHERE module = #{module} AND topic_id = #{topic_id}
+                    ORDER BY c.created_time
+    </select>
+
+    <resultMap id="commentMap" type="com.alix.amypets.bean.Comment">
+        <id column="comment_id" property="id"/>
+        <result column="type_id" property="typeId"/>
+        <result column="topic_id" property="topicId"/>
+        <result column="pid" property="pid"/>
+        <result column="uid" property="uid"/>
+        <result column="content" property="content"/>
+        <result column="creator" property="creator"/>
+        <result column="created_time" property="createdTime"/>
+        <collection property="user" ofType="com.alix.amypets.bean.user.User">
+            <id column="user_id" property="id"/>
+            <result column="username" property="username"/>
+            <result column="avatar" property="avatar"/>
+        </collection>
+    </resultMap>
+</mapper>

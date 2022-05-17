@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试页面</title>
+
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap/css/modals.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/zone.css">
+    <link rel="stylesheet" type="text/css" href="../../css/diary.css">
+    <link rel="stylesheet" type="text/css" href="../../css/testcss.css">
+</head>
+<body>
+
+
+<canvas id="clock3_" width="200px" height="200px"></canvas>
+<script src="../../lib/clock/js/canvas_clock.js"></script>
+<script>
+    clockd2_={
+        "indicate": true,
+        "dial1_color": "#666600",
+        "time_24h": true,
+        "timeoffset":0,
+        "date_add":3,
+        "date_add_color": "#999",
+    };
+    var c = document.getElementById('clock2_');
+    cns2_ = c.getContext('2d');
+    clock_digital(200,cns2_,clockd2_);
+</script>
+
+
+
+<script src="../../js/jquery-3.6.0.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.bundle.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.js"></script>
+<script src="../../js/base.js "></script>
+<script src="../../js/zone.js "></script>
+</body>
+</html>

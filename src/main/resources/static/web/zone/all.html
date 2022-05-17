@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有日记 - 艾米社区</title>
+    <link rel="icon" type="image/x-ico" href="../../images/logo/logo-icon.png" />
+    <link rel="stylesheet" type="text/css" href="../../css/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/fonts/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="../../css/typo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/zone.css">
+    <link rel="stylesheet" type="text/css" href="../../css/diary.css">
+    <link rel="stylesheet" type="text/css" href="../../css/all.css">
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script src="../../js/jquery.cookie.js"></script>
+    <script src="../../bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../../bootstrap/js/bootstrap.js"></script>
+    <script src="../../js/scrollTo.js "></script>
+    <script src="../../js/moment.js "></script>
+    <script src="../../js/base.js "></script>
+    <script src="../../js/zone.js "></script>
+    <script src="../../js/zonePlugins.js"></script>
+    <script src="../../js/diary.js"></script>
+
+    <!-- 开发用样式 -->
+    <link rel="stylesheet" type="text/css" href="../../css/testcss.css">
+</head>
+<body>
+
+
+    <!-- zone common -->
+    <div class="zone_header"></div>
+    <script>$(".zone_header").load("../template/zone_header.html")</script>
+
+    <!-- 主体页面 -->
+    <div class="container main">
+        <div class="row">
+            <div class="col-9 corner_area">
+                <!-- 暂定 先就这样吧 -->
+                <div class="row">
+                    <div class="col selects alert btn-group animate__animated animate__fadeIn" role="alert" aria-label="...">
+                        <a href="zone.html" class="font_less btn btn-info">个人首页</a>
+                        <a href="" class="font_less btn btn-info">动态</a>
+                        <a href="diary.html" class="font_less btn btn-info">日记</a>
+                        <a href="" class="font_less btn btn-info">相册</a>
+                        <a href="" class="font_less btn btn-info">音乐盒</a>
+                        <a href="guestbook.html" class="font_less btn btn-info">留言板</a>
+                        <a href="about.html" class="font_less btn btn-info">关于我</a>
+                        <a href="" class="font_less btn btn-info">更多</a>
+                    </div>
+                </div>
+                <!-- 日记 -->
+                <div class="row">
+                    <!-- 日志面板 -->
+                    <div class="col-1 text-center clear-padding">
+                        <div class="option  shadow_mini">
+                            <div class="a">
+                                <div class="b">创作</div>
+                                <div class="c">
+                                    <ul>
+                                        <li class="option_btn" onclick="location.href='write.html'">新文章</li>
+                                        <li class="option_btn" onclick="location.href='help.html'">互助问答</li>
+                                        <li class="option_btn" onclick="location.href='draft.html'">草稿箱</li>
+                                        <li class="option_btn" onclick="location.href='recycle'">回收站</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="a">
+                                <div class="b">我的文章</div>
+                                <div class="c">
+                                    <ul>
+                                        <li class="option_btn" onclick="location.href='diary.html'">最近动态</li>
+                                        <li class="option_btn" onclick="location.href='all.html'">所有文章</li>
+                                        <li class="option_btn" onclick="location.href='private.html'">私密文章</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="a">
+                                <div class="b">文章管理</div>
+                                <div class="c">
+                                    <ul>
+                                        <li class="option_btn" onclick="modal_function(1)" data-toggle="modal" data-target="#staticBackdrop">
+                                            评论管理
+                                        </li>
+                                        <li class="option_btn" onclick="modal_function(2)" data-toggle="modal" data-target="#staticBackdrop">
+                                            内容管理
+                                        </li>
+                                        <li class="option_btn" onclick="modal_function(3);showDiaryClasses()" data-toggle="modal" data-target="#staticBackdrop">
+                                            分类管理
+                                        </li>
+                                        <li class="option_btn" onclick="modal_function(4);" data-toggle="modal" data-target="#staticBackdrop">
+                                            标签管理
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="a">
+                                <div class="b">数据统计</div>
+                                <div class="c">
+                                    <ul>
+                                        <li class="option_btn">时间轴</li>
+                                        <li class="option_btn">阅访记录</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="a">
+                                <div class="b">设置</div>
+                                <div class="c">
+                                    <ul>
+                                        <li class="option_btn">基本设置</li>
+                                        <li class="option_btn">权限隐私</li>
+                                        <li class="option_btn">其他</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 我的文章-最近动态 -->
+                    <div class="col">
+                        <div class="diary_area corner_middle clear-padding">
+                            <!-- 导航 -->
+                            <div class="navbar_diary border_bottom">
+                                <div class="temp_my_diary" title=""><b>我的日记</b></div>
+                            </div>
+                            <div class="row diary_class_card">
+                                <div class="col all_center">
+                                    <span class="position-absolute  pointer">个人生活</span>
+                                    <img src="../../images/test/cat1.jpeg" class="pointer" alt="">
+                                </div>
+                                <div class="col all_center">
+                                    <span class="position-absolute  pointer">养宠经验</span>
+                                    <img src="../../images/test/cat3.jpeg" class="pointer" alt="">
+                                </div>
+                                <div class="col all_center">
+                                    <span class="position-absolute  pointer">树洞</span>
+                                    <img src="../../images/test/cat2.jpeg" class="pointer" alt="">
+                                </div>
+
+                                <div class="col all_center">
+                                    <span class="position-absolute  pointer">宠物日常</span>
+                                    <img src="../../images/test/cat5.jpeg" class="pointer" alt="">
+                                </div>
+                            </div>
+                            <!-- 选择日记的展示方式 或关键字搜索 -->
+                            <div class="diary_list_control">
+                                <div class="dropdown_radio position-relative">
+                                    <form id="diaryListControlForm">
+                                        <div class="dropdown_item active" onclick="select('radio0')">
+                                            最近日记
+                                        </div>
+                                        <div class="dropdown_radio_box corner shadow_mini hide">
+                                            <div class="dropdown_item" onclick="select('radio2')">浏览最多</div>
+                                            <div class="dropdown_item" onclick="select('radio2')">点赞最多</div>
+                                            <div class="dropdown_item" onclick="select('radio3')">评论最多</div>
+                                            <div class="dropdown_item" onclick="select('radio4')">转发最多</div>
+                                            <input id="radio0" type="radio" class="item_radio hide" name="showType" value="0">
+                                            <input id="radio1" type="radio" class="item_radio hide" name="showType" value="1">
+                                            <input id="radio2" type="radio" class="item_radio hide" name="showType" value="2">
+                                            <input id="radio3" type="radio" class="item_radio hide" name="showType" value="3">
+                                            <input id="radio4" type="radio" class="item_radio hide" name="showType" value="4">
+                                            <script>
+                                                function select(radioId) {
+                                                    $("#" + radioId).click();
+                                                }
+                                                $(function () {
+                                                    $(".dropdown_item").mouseenter(function () {
+                                                        $(".dropdown_radio_box").css("display","block");
+                                                    })
+                                                    $(".dropdown_item").mouseleave(function () {
+                                                        $(".dropdown_radio_box").css("display","none");
+                                                    })
+                                                })
+                                            </script>
+                                        </div>
+                                        <div class="check_box pointer" onclick="isTop($(this));pullDiaryList(true)" title="是否展示置顶日记">
+                                            <span class="font_mini">✔</span>&nbsp;显示置顶
+                                            <input type="radio" id="top" name="top" value="true" checked class="hide">
+                                        </div>
+                                        <div class="search_normal_box">
+                                            <input name="content" type="text" class="search_normal" placeholder="输入关键字精准搜索">
+                                            <div class="pointer text-center" onclick="pullDiaryList(true)">搜 索</div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <script>$(function () {pullDiaryList(true)})</script>
+                            <!-- 日记区域 -->
+                            <div id="diary_list">
+                                <!-- 日记 具体的每条 -->
+                                <div class="diary_per">
+                                    <div class="body float-left ">
+                                        <div class="title">
+                                            <div class="menu_box">
+                                                <i class="bi bi-three-dots menu_control"></i>
+                                                <div class="menu_body">
+                                                    <a href="">编辑</a>
+                                                    <a href="">删除</a>
+                                                </div>
+                                            </div>
+                                            如何让小猫养成在马桶排便的习惯具体讲解<span class="square_green">原创</span>
+                                        </div>
+                                        <div class="content">
+                                            以后能够赚很多钱，在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布拉多犬， 以及一只黄金猎犬，
+                                            每天过着悠闲的生活，无忧无虑，和狗儿们相处的每一个片段，都深刻的保存在我的记意里，
+                                            他们不只是一只狗，他们更是我的朋友，我会永远记得他们，期待下次的相遇。以后能够赚很多钱，
+                                            在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布
+                                        </div>
+                                        <ul class="interact">
+                                            <li title="发表时间">
+                                                <i class="bi bi-clock"></i>
+                                                2022-4-16
+                                            </li>
+                                            <li title="作者">
+                                                <i class="bi bi-person"></i>
+                                                小云景
+                                            </li>
+                                            <li title="有多少人看过呢？">
+                                                <i class="bi bi-eye"></i>
+                                                6.3k
+                                            </li>
+                                            <li title="喜欢就点个赞吧！">
+                                                <i class="bi bi-hand-thumbs-up"></i>
+                                                1.5k
+                                            </li>
+                                            <li title="转发让更多人看到吧！">
+                                                <i class="bi bi-box-arrow-in-up-right"></i>
+                                                800
+                                            </li>
+                                            <li title="有多少人在参与讨论？">
+                                                <i class="bi bi-pencil-square"></i>
+                                                2.3k
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 日记 具体的每条 -->
+                                <div class="diary_per">
+                                    <div class="body float-left ">
+                                        <div class="title">
+                                            <div class="menu_box">
+                                                <i class="bi bi-three-dots menu_control"></i>
+                                                <div class="menu_body">
+                                                    <a href="">编辑</a>
+                                                    <a href="">删除</a>
+                                                </div>
+                                            </div>
+                                            如何让小猫养成在马桶排便的习惯具体讲解<span class="square_green">原创</span>
+                                        </div>
+                                        <div class="content">
+                                            以后能够赚很多钱，在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布拉多犬， 以及一只黄金猎犬，
+                                            每天过着悠闲的生活，无忧无虑，和狗儿们相处的每一个片段，都深刻的保存在我的记意里，
+                                            他们不只是一只狗，他们更是我的朋友，我会永远记得他们，期待下次的相遇。以后能够赚很多钱，
+                                            在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布
+                                        </div>
+                                        <ul class="interact">
+                                            <li title="发表时间">
+                                                <i class="bi bi-clock"></i>
+                                                2022-4-16
+                                            </li>
+                                            <li title="作者">
+                                                <i class="bi bi-person"></i>
+                                                小云景
+                                            </li>
+                                            <li title="有多少人看过呢？">
+                                                <i class="bi bi-eye"></i>
+                                                6.3k
+                                            </li>
+                                            <li title="喜欢就点个赞吧！">
+                                                <i class="bi bi-hand-thumbs-up"></i>
+                                                1.5k
+                                            </li>
+                                            <li title="转发让更多人看到吧！">
+                                                <i class="bi bi-box-arrow-in-up-right"></i>
+                                                800
+                                            </li>
+                                            <li title="有多少人在参与讨论？">
+                                                <i class="bi bi-pencil-square"></i>
+                                                2.3k
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 日记 具体的每条 -->
+                                <div class="diary_per">
+                                    <div class="body float-left ">
+                                        <div class="title">
+                                            <div class="menu_box">
+                                                <i class="bi bi-three-dots menu_control"></i>
+                                                <div class="menu_body">
+                                                    <a href="">编辑</a>
+                                                    <a href="">删除</a>
+                                                </div>
+                                            </div>
+                                            如何让小猫养成在马桶排便的习惯具体讲解<span class="square_yellow">转载</span>
+                                        </div>
+                                        <div class="content">
+                                            以后能够赚很多钱，在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布拉多犬， 以及一只黄金猎犬，
+                                            每天过着悠闲的生活，无忧无虑，和狗儿们相处的每一个片段，都深刻的保存在我的记意里，
+                                            他们不只是一只狗，他们更是我的朋友，我会永远记得他们，期待下次的相遇。以后能够赚很多钱，
+                                            在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布
+                                        </div>
+                                        <ul class="interact">
+                                            <li title="发表时间">
+                                                <i class="bi bi-clock"></i>
+                                                2022-4-16
+                                            </li>
+                                            <li title="作者">
+                                                <i class="bi bi-person"></i>
+                                                小云景
+                                            </li>
+                                            <li title="有多少人看过呢？">
+                                                <i class="bi bi-eye"></i>
+                                                6.3k
+                                            </li>
+                                            <li title="喜欢就点个赞吧！">
+                                                <i class="bi bi-hand-thumbs-up"></i>
+                                                1.5k
+                                            </li>
+                                            <li title="转发让更多人看到吧！">
+                                                <i class="bi bi-box-arrow-in-up-right"></i>
+                                                800
+                                            </li>
+                                            <li title="有多少人在参与讨论？">
+                                                <i class="bi bi-pencil-square"></i>
+                                                2.3k
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 日记 具体的每条 -->
+                                <div class="diary_per">
+                                    <div class="body float-left ">
+                                        <div class="title">
+                                            <div class="menu_box">
+                                                <i class="bi bi-three-dots menu_control"></i>
+                                                <div class="menu_body">
+                                                    <a href="">编辑</a>
+                                                    <a href="">删除</a>
+                                                </div>
+                                            </div>
+                                            如何让小猫养成在马桶排便的习惯具体讲解<span class="square_green">原创</span>
+                                        </div>
+                                        <div class="content">
+                                            以后能够赚很多钱，在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布拉多犬， 以及一只黄金猎犬，
+                                            每天过着悠闲的生活，无忧无虑，和狗儿们相处的每一个片段，都深刻的保存在我的记意里，
+                                            他们不只是一只狗，他们更是我的朋友，我会永远记得他们，期待下次的相遇。以后能够赚很多钱，
+                                            在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布
+                                        </div>
+                                        <ul class="interact">
+                                            <li title="发表时间">
+                                                <i class="bi bi-clock"></i>
+                                                2022-4-16
+                                            </li>
+                                            <li title="作者">
+                                                <i class="bi bi-person"></i>
+                                                小云景
+                                            </li>
+                                            <li title="有多少人看过呢？">
+                                                <i class="bi bi-eye"></i>
+                                                6.3k
+                                            </li>
+                                            <li title="喜欢就点个赞吧！">
+                                                <i class="bi bi-hand-thumbs-up"></i>
+                                                1.5k
+                                            </li>
+                                            <li title="转发让更多人看到吧！">
+                                                <i class="bi bi-box-arrow-in-up-right"></i>
+                                                800
+                                            </li>
+                                            <li title="有多少人在参与讨论？">
+                                                <i class="bi bi-pencil-square"></i>
+                                                2.3k
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 日记 具体的每条 -->
+                                <div class="diary_per">
+                                    <div class="body float-left ">
+                                        <div class="title">
+                                            <div class="menu_box">
+                                                <i class="bi bi-three-dots menu_control"></i>
+                                                <div class="menu_body">
+                                                    <a href="">编辑</a>
+                                                    <a href="">删除</a>
+                                                </div>
+                                            </div>
+                                            如何让小猫养成在马桶排便的习惯具体讲解<span class="square_blue">翻译</span>
+                                        </div>
+                                        <div class="content">
+                                            以后能够赚很多钱，在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布拉多犬， 以及一只黄金猎犬，
+                                            每天过着悠闲的生活，无忧无虑，和狗儿们相处的每一个片段，都深刻的保存在我的记意里，
+                                            他们不只是一只狗，他们更是我的朋友，我会永远记得他们，期待下次的相遇。以后能够赚很多钱，
+                                            在一个静谧的海边，盖一座富丽堂皇的豪宅，养一只拉布
+                                        </div>
+                                        <ul class="interact">
+                                            <li title="发表时间">
+                                                <i class="bi bi-clock"></i>
+                                                2022-4-16
+                                            </li>
+                                            <li title="作者">
+                                                <i class="bi bi-person"></i>
+                                                小云景
+                                            </li>
+                                            <li title="有多少人看过呢？">
+                                                <i class="bi bi-eye"></i>
+                                                6.3k
+                                            </li>
+                                            <li title="喜欢就点个赞吧！">
+                                                <i class="bi bi-hand-thumbs-up"></i>
+                                                1.5k
+                                            </li>
+                                            <li title="转发让更多人看到吧！">
+                                                <i class="bi bi-box-arrow-in-up-right"></i>
+                                                800
+                                            </li>
+                                            <li title="有多少人在参与讨论？">
+                                                <i class="bi bi-pencil-square"></i>
+                                                2.3k
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="" class="text-center blank_bottom gap_row_1">展开更多</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧栏 功能 -->
+            <div class="col area area-right">
+                <!-- 个人信息 -->
+                <div class="personal card_info_box corner_area clear-padding text-center">
+                    <span class="actively_start pointer star_lighting" title="当前是活跃之星用户">★ ACTIVELY STAR</span>
+                    <img class="card_bg corner_area" src="../../images/bg/card_bg1.jpg" alt="">
+                    <img src="../../images/test/avatar1.png" class="avatar circle ava_large border_2" alt="">
+                    <div class="card_info clear-padding">
+                        <div class="username">飞翔的小黄猫Alix</div>
+                        <div class="padding_row">
+                            <div class="font_mini">
+                                <span>关注 325</span>
+                                <span>粉丝 3.6k</span>
+                            </div>
+                            <div class="signature font_less font-weight-bold">这个人很酷，什么都没有留下</div>
+                        </div>
+                        <div class="card_info_more" onclick="hideOrShow($('.home_info'))">
+                            <div class="card_info_control pointer">
+                                <img src="../../bootstrap/icons/chevron-compact-down.svg" class="pointer" alt="">
+                            </div>
+                            <div class="home_info font_less hide border-top">
+                                <div class="home_code">社区编号 65033129798</div>
+                                <div class="home_age">社龄 1年8月&nbsp;加入时间 2021-6-8</div>
+                                <div class="email">65033129798@amys.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-center" style="border-radius: 0 0 15px 15px">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-qr-code-scan"></i>
+                        扫描二维码
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body">
+                        <span>添加我为社区好友</span><br>
+                        <img class="qrCode" src="../../images/test/code.png" title="别扫了 扫不出来的" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-info-square"></i>
+                        公告信息
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body">
+                        暂时还没有公告
+                    </div>
+                </div>
+                <div class="card diary_clazz">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-list"></i>
+                        日记分类
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body">
+                        <div><a href="diary.html?did=12">日常 15<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">美食 20<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">宠物 33<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">视频 8<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                        <div><a href="diary.html?did=12">其他 5<i class="show_hide bi bi-forward hide float-right"></i></a></div>
+                    </div>
+                </div>
+                <div class="card diary_tag">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-tags"></i>
+                        日记标签
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div class="card_body text-center">
+                        <span>玩耍</span>
+                        <span>撸猫</span>
+                        <span>遛猫遛狗</span>
+                        <span>打游戏</span>
+                        <span>旅游</span>
+                        <span>聚会</span>
+                        <span>随笔</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class=" card_title" onclick="hideOrShow($(this).next())">
+                        <i class="bi bi-journal-check"></i>
+                        日志推荐
+                        <i class="show_hide bi bi-arrow-down-up hide float-right pointer"
+                           onclick="hideOrShow($(this).parent().next())"></i>
+                    </div>
+                    <div id="diaryRecommend" class="card_body">
+                        <div><a href="diary_per.html">
+                            1 布偶猫不吃东西怎么办？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div><a href="">
+                            2 遛狗的正确打开方式！</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            3 给猫猫刷牙</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            4 狗狗凶人怎么教育？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i></div>
+                        <div><a href="">
+                            5 养一只猫一个月要花费多少马内？</a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                        <div><a href="">
+                            展开更多 <i class="bi bi-plus-lg"></i></a>
+                            <i class="show_hide bi bi-forward hide float-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="page_foot"></div>
+    <script>$(".page_foot").load("../template/footer.html")</script>
+
+    <!--
+        组件
+     -->
+
+    <!-- 弹窗 -->
+    <div id="popup_tip" class="popup_box hide">
+        <div class="all_center">
+            <div class="popup_body">
+                <img src="../../images/icons/tips/info.png" alt="">
+                <div class="popup_content">可爱的用户，你好~</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header all_center">
+                    <h5 class="modal-title " id="staticBackdropLabel">管理我的文章</h5>
+                </div>
+                <div class="modal-body text-center  clear-padding">
+                    <div class="row clear-padding">
+                        <div class="col-2 modal_left border_left_right">
+                            <div>评论管理</div>
+                            <div>内容管理</div>
+                            <div>分类管理</div>
+                            <div>标签管理</div>
+                        </div>
+                        <div class="col-10 modal_right  text-left">
+                            <div class="modal_function_area text-center">
+                                <table class="table cls_modal table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>分类名称</th>
+                                        <th>默认</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="diaryClasses">
+                                    <tr>
+                                        <th>1</th>
+                                        <td class="cls_name">
+                                            <input type="text" name="clsName" class="no_border text-center" value="默认分类"
+                                                   maxlength="10" onclick="$(this).parents('tr').find('.mybtn_green').show()">
+                                        </td>
+                                        <td>√</td>
+                                        <td class="row_control">
+                                            <span class="clsRecord hide">默认分类</span>
+                                            <span class="mybtn_green hide" onclick="clsOpera(this,'PUT')">保存</span>
+                                            <span class="mybtn_red" onclick="clsOpera(this,'DELETE')">删除</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>2</th>
+                                        <td class="cls_name">
+                                            <input type="text" name="clsName" class="no_border text-center" value="个人生活"
+                                                   maxlength="10" onclick="$(this).parents('tr').find('.mybtn_green').show()">
+                                        </td>
+                                        <td></td>
+                                        <td class="row_control">
+                                            <span class="clsRecord hide">个人生活</span>
+                                            <span class="mybtn_green hide" onclick="clsOpera(this,'PUT')">保存</span>
+                                            <span class="mybtn_red" onclick="clsOpera(this,'DELETE')">删除</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>3</th>
+                                        <td class="cls_name">
+                                            <input type="text" name="clsName" class="no_border text-center" value="和宠物一起"
+                                                   maxlength="10" onclick="$(this).parents('tr').find('.mybtn_green').show()">
+                                        </td>
+                                        <td></td>
+                                        <td class="row_control">
+                                            <span class="clsRecord hide">和宠物一起</span>
+                                            <span class="mybtn_green hide" onclick="clsOpera(this,'PUT')">保存</span>
+                                            <span class="mybtn_red" onclick="clsOpera(this,'DELETE')">删除</span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="add_new_class">
+                                    <img src="../../bootstrap/icons/plus-circle.svg" onclick="addCls()" alt="">
+                                </div>
+                                <div class="page_control text-center">
+                                    <button class="mybtn_blue">上一页</button>
+                                    <button class="mybtn_blue">下一页</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">退出</button>
+                    <!--                    <button type="button" class="btn btn-primary" onclick="submit($('#clsForm'))">保存</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        function modal_function(num) {
+            switch (num) {
+                case 1:
+
+                    break
+                case 2:
+                    classManage();
+                    break
+                case 3: // 分类管理
+
+                    break
+            }
+        }
+
+        // 头部控制 收起/展开按钮点击
+        function headerControlBtn() {
+            bannerHeaderStow();
+            // setTimeout(headerIn,1000)
+        }
+
+        // 隐藏默认banner导航栏
+        function bannerHeaderStow() {
+            $("#bannerHeader button,#bannerHeader div").hide();
+            $("#bannerHeader *").attr("class", "animate__animated animate__fadeOutUp");
+        }
+
+        // 显示公共头部导航栏
+        function headerIn() {
+            $("#bannerHeader").attr("class", "animate__animated animate__fadeIntUp");
+        }
+    </script>
+</body>
+</html>

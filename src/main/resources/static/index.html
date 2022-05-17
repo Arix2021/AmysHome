@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/mytools.js"></script>
+    <script src="js/index.js"></script>
+
+    <!-- 开发用样式 -->
+    <link rel="stylesheet" type="text/css" href="css/testcss.css">
+
+    <title>艾米的宠物社区</title>
+    <style type="text/css">
+
+        /*.blink:hover {*/
+        /*    -webkit-animation-name: blink; !*关键帧名称*!*/
+        /*    -webkit-animation-timing-function: ease-in-out; !*动画的速度曲线*!*/
+        /*    -webkit-animation-iteration-count: 2; !*动画播放的次数*!*/
+        /*    -webkit-animation-duration: 3s; !*动画所花费的时间*!*/
+        /*}*/
+
+        /*@keyframes blink { !*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*!*/
+        /*    0% {*/
+        /*        background-image: url("images/icons/cat_black_closed.png");*/
+        /*    }*/
+        /*    20% {*/
+        /*        background-image: url("images/icons/cat_black.png");*/
+        /*    }*/
+        /*    50% {*/
+        /*        background-image: url("images/icons/cat_black_closed.png");*/
+        /*    }*/
+        /*    75% {*/
+        /*        background-image: url("images/icons/cat_black.png");*/
+        /*    }*/
+        /*}*/
+
+        /*加载特效动画*/
+        /*.sk-chase {*/
+        /*    width: 40px;*/
+        /*    height: 40px;*/
+        /*    position: fixed;*/
+        /*    top: 45%;*/
+        /*    left: 49%;*/
+        /*    animation: sk-chase 2.5s infinite linear both;*/
+        /*}*/
+
+        /*.sk-chase-dot {*/
+        /*    width: 100%;*/
+        /*    height: 100%;*/
+        /*    position: absolute;*/
+        /*    left: 0;*/
+        /*    top: 0;*/
+        /*    animation: sk-chase-dot 2.0s infinite ease-in-out both;*/
+        /*}*/
+
+        /*.sk-chase-dot:before {*/
+        /*    content: '';*/
+        /*    display: block;*/
+        /*    width: 25%;*/
+        /*    height: 25%;*/
+        /*    background-color: #fff;*/
+        /*    border-radius: 100%;*/
+        /*    animation: sk-chase-dot-before 2.0s infinite ease-in-out both;*/
+        /*}*/
+
+        /*.sk-chase-dot:nth-child(1) { animation-delay: -1.1s; }*/
+        /*.sk-chase-dot:nth-child(2) { animation-delay: -1.0s; }*/
+        /*.sk-chase-dot:nth-child(3) { animation-delay: -0.9s; }*/
+        /*.sk-chase-dot:nth-child(4) { animation-delay: -0.8s; }*/
+        /*.sk-chase-dot:nth-child(5) { animation-delay: -0.7s; }*/
+        /*.sk-chase-dot:nth-child(6) { animation-delay: -0.6s; }*/
+        /*.sk-chase-dot:nth-child(1):before { animation-delay: -1.1s; }*/
+        /*.sk-chase-dot:nth-child(2):before { animation-delay: -1.0s; }*/
+        /*.sk-chase-dot:nth-child(3):before { animation-delay: -0.9s; }*/
+        /*.sk-chase-dot:nth-child(4):before { animation-delay: -0.8s; }*/
+        /*.sk-chase-dot:nth-child(5):before { animation-delay: -0.7s; }*/
+        /*.sk-chase-dot:nth-child(6):before { animation-delay: -0.6s; }*/
+
+        /*@keyframes sk-chase {*/
+        /*    100% { transform: rotate(360deg); }*/
+        /*}*/
+
+        /*@keyframes sk-chase-dot {*/
+        /*    80%, 100% { transform: rotate(360deg); }*/
+        /*}*/
+
+        /*@keyframes sk-chase-dot-before {*/
+        /*    50% {*/
+        /*        transform: scale(0.4);*/
+        /*    } 100%, 0% {*/
+        /*          transform: scale(1.0);*/
+        /*      }*/
+        /*}*/
+    </style>
+</head>
+<body>
+<!-- 页面主体 -->
+<div class="container-fluid text-center" style="min-width: 1920px">
+
+    <!-- 顶部选项 -->
+    <div class="row" style="vertical-align: middle;line-height: 150px">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col-2 text-right ">
+            <span class="mybtn un-sharp">客户端下载</span>
+        </div>
+        <div class="col-2 text-left">
+            <span class="mybtn un-sharp">移动端下载</span>
+        </div>
+    </div>
+    <div class="row" style="height: 100px"></div>
+
+    <!-- 首页标题行 -->
+    <div class="row">
+        <div class="col" style="height: 110px;text-align: center">
+            <span id="index_title" class="un-sharp">
+                <a href="#" title="点击前往艾米的主页喔~">
+                    艾米的宠物社区
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <!-- 首页搜索框 -->
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6" style="height: 52px">
+            <!-- 猫咪气泡 -->
+            <div class="bubble corner shadow text-left" id="index_search_cat_tip"
+                 style="border-radius: 8px;display: none">
+                <i></i>
+                <b><span class="bubble_tip">&nbsp;喵喵提示</span></b>
+                <span>(⑉•‧•⑉)♡</span>
+                <p>
+                    <span class="bubble_tip ">&nbsp;&nbsp;&nbsp;&nbsp;在我闭眼时会帮你清除搜</span>
+                    <span class="bubble_tip">&nbsp;&nbsp;&nbsp;&nbsp;索栏中的内容哦~</span>
+                    <span class="bubble_tip" hidden="hidden">&nbsp;&nbsp;&nbsp;&nbsp;通过快速入口你可以直接</span>
+                    <span class="bubble_tip" hidden="hidden">&nbsp;&nbsp;&nbsp;&nbsp;到达登录或注册页面哦~</span>
+                </p>
+            </div>
+
+            <!-- 搜索框主体   -->
+            <div class="col text-center">
+                <form id="index_search_form" action="#" method="get">
+                    <div id="index_search_all" class="search corner">
+                        <label for="index_search">
+                            <img src="images/cat_black.png" id="index_log_cat" class="pointer blink" alt=""
+                                 title="可能会有有趣的事儿~"
+                            >
+                            <input id="index_search" name="search" type="text" placeholder=" 搜索你想要了解的"
+                                   autocomplete="off" class="no_corner"
+                                   style="border: none">
+                        </label>
+                        <div class="btn" style="width: 45px;">
+                            <div id="search_commit" class="vary pointer"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col col-sm text-left">
+            <span style="position: relative;top: 12px;left: -50px">
+                <img src="bootstrap/icons/bootstrap-reboot.svg" id="flush" class="flush" alt="" title="点击刷新页面">
+            </span>
+        </div>
+    </div>
+
+<!--    &lt;!&ndash; 导航区 &ndash;&gt;-->
+<!--    <div class="row">-->
+<!--        <div class="col-6 offset-3 text-center">-->
+<!--            <table class="table table-hover">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        <img src="images/icons/cloud.png" alt=""> 云 上 养 宠-->
+<!--                    </a></th>-->
+<!--                    <th class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        <img src="images/icons/human.png" alt=""> 交 流 论 坛-->
+<!--                    </a></th>-->
+<!--                    <th class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        <img src="images/icons/gift.png" alt=""> 爱 宠 小 铺-->
+<!--                    </a></th>-->
+<!--                    <th class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        <img src="images/icons/cure.png" alt=""> 健 康 中 心-->
+<!--                    </a></th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        领养专属云幼崽-->
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        新人求助-->
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        零食宠粮-->
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        线上咨询-->
+<!--                    </a></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        云吸萌物-->
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        分享经验-->
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        宠物玩具-->
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        线下宠物医院-->
+<!--                    </a></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        在线投喂</a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        以宠会友</a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        户外配件</a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        上门诊治</a></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        留言反馈-->
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+<!--                        缘定新宠-->
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+
+<!--                    </a></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="web/admin/temp/admin.html">-->
+<!--                        <img src="images/icons/ban.png" alt=""> 开发者入口-->
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+
+<!--                    </a></td>-->
+<!--                    <td class="index-table-row-filed"><a href="https://www.baidu.com">-->
+
+<!--                    </a></td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <!-- 底部 -->
+    <div class="row">
+        <div class="col">
+            <div class="quick_way pointer">
+                <div><a href="web/user/account.html">点此快速进入~冲！</a></div>
+            </div>
+        </div>
+        <div class="row" style="height: 200px"></div>
+    </div>
+
+</div>
+
+<!-- footer-->
+<!--<div style="height: 65px;width: 1920px;position: fixed;bottom: 0;">-->
+<!--    <div class="index_footer">-->
+<!--        <div>-->
+<!--            <span><a href="#">关于社区</a></span>-->
+<!--            <span><a href="#">About Amy's</a></span>-->
+<!--            <span><a href="#">服务协议</a></span>-->
+<!--            <span><a href="#">全站地图</a></span>-->
+<!--            <span><a href="#">帮助中心</a></span>-->
+<!--            <span><a href="#">意见反馈</a></span>-->
+<!--            <span><a href="#">举报</a></span>-->
+<!--            <span><a href="#"><img src="images/icons/tel.png" alt="">&nbsp;-->
+<!--                400-192-2022-->
+<!--            </a></span>-->
+<!--            <span><a href="#"><img src="images/icons/email.png" alt="">&nbsp;-->
+<!--                welcome@amyhome.com-->
+<!--            </a></span>-->
+<!--            <span><a href="#">在线客服 QQ 2368758164&nbsp;&nbsp;1715178458</a></span>-->
+<!--            <span><a href="#">工作时间 9:30~22:00 工作日内</a></span>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <span>Copyright © 2022 alix.cn All Rights Reserved</span>-->
+<!--            <span>-->
+<!--                浏览器支持&nbsp;&nbsp;&nbsp;-->
+<!--                <img src="images/icons/chrome.png" alt="">&nbsp;&nbsp;-->
+<!--                <img src="images/icons/edge.png" alt="">&nbsp;&nbsp;-->
+<!--                <img src="images/icons/ie.png" alt="">&nbsp;&nbsp;-->
+<!--                <img src="images/icons/huohu.png" alt="">&nbsp;&nbsp;-->
+<!--                <img src="images/icons/360.png" alt="">(11)-->
+<!--            </span>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+    <!-- footer -->
+    <div class="index_footer">
+        <div class="text-center ">
+            <div>
+                <span><a href="#">关于社区</a></span>
+                <span><a href="#">About Amy's</a></span>
+                <span><a href="#">服务协议</a></span>
+                <span><a href="#">全站地图</a></span>
+                <span><a href="#">帮助中心</a></span>
+                <span><a href="#">意见反馈</a></span>
+                <span><a href="#">举报</a></span>
+                <span><a href="#"><img src="images/icons/tel.png" alt="">
+                        400-192-2022
+                    </a></span>
+                <span><a href="#"><img src="images/icons/email.png" alt="">
+                        welcome@amyhome.com
+                    </a></span>
+                <span><a href="#">在线客服 QQ 2368758164&nbsp;&nbsp;1715178458</a></span>
+                <span><a href="#">工作时间 9:30~22:00 工作日内</a></span>
+            </div>
+            <div>
+                <span>Copyright © 2022 alix.cn All Rights Reserved</span>
+                <span>
+                        浏览器支持&nbsp;&nbsp;&nbsp;
+                        <img src="images/icons/chrome.png" alt="">&nbsp;&nbsp;
+                        <img src="images/icons/edge.png" alt="">&nbsp;&nbsp;
+                        <img src="images/icons/ie.png" alt="">&nbsp;&nbsp;
+                        <img src="images/icons/huohu.png" alt="">&nbsp;&nbsp;
+                        <img src="images/icons/360.png" alt="">(11)
+                    </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面视频背景 -->
+    <video autoplay="autoplay" loop="loop" muted="muted">
+        <source src="video/index_background.mp4" type="video/mp4"/>
+    </video>
+</body>
+</html>
